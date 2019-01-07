@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Form1 : Form
+    public partial class Lista_Equipamentos : Form
     {
-        public Form1()
+        public Lista_Equipamentos()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
