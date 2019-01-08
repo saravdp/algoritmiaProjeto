@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Security.Principal;
 
 namespace Login
 {
@@ -29,7 +29,6 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
             String line;
-            //Registo --> StreamWriter sw = new StreamWriter("Ficheiros de Texto/utilizadores.txt");
             StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
             //Read the first line of text
             line = sr.ReadLine();
@@ -39,25 +38,36 @@ namespace Login
             {
                 username = textBox1.Text;
                 password = textBox2.Text;
-                char[] delimiters = new char[] {';'};
-                string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                char delimiters = ';';
+                string[] parts = line.Split(delimiters);
+               
                 if (parts[1]==username)
                 {
-                    if (parts[2] == password)
+                    if (parts[3] == password)
                     {
-                        Console.WriteLine("LOGIN");
                         //se login == successful
                         this.Hide();
                         Form home = new Lista_Equipamentos();
                         home.Closed += (s, args) => this.Close();
                         home.Show();
+                        MessageBox.Show( WindowsIdentity.GetCurrent().Token.ToString());
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password Errada");
+
                     }
                 }
+
                 //write the lie to console window
                 //Console.WriteLine(line);
                 //Read the next line
                 line = sr.ReadLine();
             }
+           /* {
+                MessageBox.Show("O user não existe");
+            }*/
 
             //close the file
             sr.Close();

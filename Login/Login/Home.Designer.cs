@@ -1,7 +1,12 @@
-﻿namespace Login
+﻿using System;
+using System.Security.Principal;
+using System.Windows.Forms;
+
+namespace Login
 {
     partial class Lista_Equipamentos
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
