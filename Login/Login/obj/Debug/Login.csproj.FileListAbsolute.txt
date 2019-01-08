@@ -11,3 +11,6 @@ C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Logi
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Lista_Equipamentos.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Login.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Consulta_Requisicoes.resources
+C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Comentarios_admin.resources
+C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Historico_Comentarios.resources
+C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Novo_Comentario.resources

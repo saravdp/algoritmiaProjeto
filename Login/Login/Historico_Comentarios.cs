@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Comentarios : Form
+    public partial class Historico_Comentarios : Form
     {
-        public Comentarios()
+        public Historico_Comentarios()
         {
             InitializeComponent();
         }

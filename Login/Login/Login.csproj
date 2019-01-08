@@ -45,6 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Historico_Comentarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historico_Comentarios.Designer.cs">
+      <DependentUpon>Historico_Comentarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Novo_Comentario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Novo_Comentario.Designer.cs">
+      <DependentUpon>Novo_Comentario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comentarios_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comentarios_admin.Designer.cs">
+      <DependentUpon>Comentarios_admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consulta_Requisicoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +89,15 @@
     <Compile Include="Registo.Designer.cs">
       <DependentUpon>Registo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Historico_Comentarios.resx">
+      <DependentUpon>Historico_Comentarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Novo_Comentario.resx">
+      <DependentUpon>Novo_Comentario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comentarios_admin.resx">
+      <DependentUpon>Comentarios_admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consulta_Requisicoes.resx">
       <DependentUpon>Consulta_Requisicoes.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +115,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registo.resx">
       <DependentUpon>Registo.cs</DependentUpon>
@@ -104,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ALGORITMIA 3 png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ALGORITMIA 2 png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
