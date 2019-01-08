@@ -10,3 +10,4 @@ C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Logi
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Registo.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Lista_Equipamentos.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Login.resources
+C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Consulta_Requisicoes.resources
