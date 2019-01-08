@@ -1,0 +1,31 @@
+--> Objetos a requisitar 
+	-Ler e modificar ficheiros de texto
+
+--------------------------------------------------
+--> Requisição de Objetos 
+	- Criar ficheiros de texto para o dia
+	-Adicionar linha ficheiro de texto
+
+--------------------------------------------------
+--> Devolução 
+	-Alterar o ficheiro do dia da requisição e acrescentar a data da devolução 
+
+--------------------------------------------------
+--> Gestão de salas
+	-Ficheiro de texto que contem salas 
+	-adicionar e remover
+
+--------------------------------------------------
+--> consultas
+	-Listar requisições e devoluções
+
+--------------------------------------------------
+-->Alertas
+
+--------------------------------------------------
+-->Comentários
+	-Ficheiro de texto
+
+--------------------------------------------------
+-->Autenticação de utilizadores(Login) 
+	-Utilizadores.txt -->nome,email,pass,tipoUser

@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Principal;
 
 namespace Login
 {
     public partial class Login : Form
     {
+        public string username;
+        public string password;
         public Login()
         {
             InitializeComponent();
@@ -24,10 +28,54 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form home = new Lista_Equipamentos();
-            home.Closed += (s, args) => this.Close();
-            home.Show();
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+
+            //Continue to read until you reach end of file
+            while (line != null)
+            {
+                username = textBox1.Text;
+                password = textBox2.Text;
+                char delimiters = ';';
+                string[] parts = line.Split(delimiters);
+               
+                if (parts[1]==username)
+                {
+                    if (parts[3] == password)
+                    {
+                        //se login == successful
+                        this.Hide();
+                        Form home = new Lista_Equipamentos();
+                        home.Closed += (s, args) => this.Close();
+                        home.Show();
+                        MessageBox.Show( WindowsIdentity.GetCurrent().Token.ToString());
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password Errada");
+
+                    }
+                }
+
+                //write the lie to console window
+                //Console.WriteLine(line);
+                //Read the next line
+                line = sr.ReadLine();
+            }
+           /* {
+                MessageBox.Show("O user não existe");
+            }*/
+
+            //close the file
+            sr.Close();
+
+
+
+
+            
         }
 
         private void label3_Click(object sender, EventArgs e)

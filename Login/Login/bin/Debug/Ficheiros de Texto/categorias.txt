@@ -1,0 +1,8 @@
+01;Chaves
+02;Projetores
+03;Comandos
+04;Câmeras
+05;Video
+06;Computadores
+07;Greenscreens
+08;Arduinos
