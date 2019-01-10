@@ -45,7 +45,10 @@ namespace Login
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

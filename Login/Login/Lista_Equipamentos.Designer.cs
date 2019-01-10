@@ -36,25 +36,28 @@ namespace Login
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.listaEquipamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestãoDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.gestãoDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Tipo_objeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,7 +70,8 @@ namespace Login
             this.listaEquipamentosToolStripMenuItem,
             this.consultasToolStripMenuItem,
             this.comentáriosToolStripMenuItem,
-            this.gestãoDeSalasToolStripMenuItem});
+            this.gestãoDeSalasToolStripMenuItem,
+            this.comentáriosAdminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(847, 28);
@@ -79,6 +83,7 @@ namespace Login
             this.listaEquipamentosToolStripMenuItem.Name = "listaEquipamentosToolStripMenuItem";
             this.listaEquipamentosToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
             this.listaEquipamentosToolStripMenuItem.Text = "Lista Equipamentos";
+            this.listaEquipamentosToolStripMenuItem.Click += new System.EventHandler(this.listaEquipamentosToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -86,6 +91,16 @@ namespace Login
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.consultasToolStripMenuItem.Text = "Consultar Requisições";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
+            // 
+            // comentáriosToolStripMenuItem
+            // 
+            this.comentáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inserirNovoToolStripMenuItem,
+            this.históricoToolStripMenuItem});
+            this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
+            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.comentáriosToolStripMenuItem.Text = "Comentários";
+            this.comentáriosToolStripMenuItem.Click += new System.EventHandler(this.comentáriosToolStripMenuItem_Click);
             // 
             // gestãoDeSalasToolStripMenuItem
             // 
@@ -96,11 +111,19 @@ namespace Login
             this.gestãoDeSalasToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.gestãoDeSalasToolStripMenuItem.Text = "Gestão (Admin)";
             // 
-            // comentáriosToolStripMenuItem
+            // salasToolStripMenuItem
             // 
-            this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
-            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
-            this.comentáriosToolStripMenuItem.Text = "Comentários";
+            this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.salasToolStripMenuItem.Text = "Salas";
+            this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.categoriasToolStripMenuItem.Text = "Categorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -119,65 +142,15 @@ namespace Login
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorias";
             // 
-            // checkBox1
+            // checkBox8
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(19, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 21);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Chaves";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(19, 59);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(95, 21);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Projetores";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(19, 86);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(97, 21);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Comandos";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(19, 113);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(86, 21);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Camaras";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(19, 140);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(66, 21);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Video";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(19, 167);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(122, 21);
-            this.checkBox6.TabIndex = 5;
-            this.checkBox6.Text = "Computadores";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(19, 221);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(86, 21);
+            this.checkBox8.TabIndex = 7;
+            this.checkBox8.Text = "Arduinos";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // checkBox7
             // 
@@ -189,27 +162,65 @@ namespace Login
             this.checkBox7.Text = "Greenscreens";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // checkBox6
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(19, 221);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(86, 21);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "Arduinos";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(19, 167);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(122, 21);
+            this.checkBox6.TabIndex = 5;
+            this.checkBox6.Text = "Computadores";
+            this.checkBox6.UseVisualStyleBackColor = true;
             // 
-            // salasToolStripMenuItem
+            // checkBox5
             // 
-            this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.salasToolStripMenuItem.Text = "Salas";
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(19, 140);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(66, 21);
+            this.checkBox5.TabIndex = 4;
+            this.checkBox5.Text = "Video";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // categoriasToolStripMenuItem
+            // checkBox4
             // 
-            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.categoriasToolStripMenuItem.Text = "Categorias";
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(19, 113);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(86, 21);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "Camaras";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(19, 86);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(97, 21);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "Comandos";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(19, 59);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(95, 21);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "Projetores";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(19, 32);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(77, 21);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Chaves";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -265,6 +276,27 @@ namespace Login
             this.button1.Text = "Requisitar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // inserirNovoToolStripMenuItem
+            // 
+            this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
+            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.inserirNovoToolStripMenuItem.Text = "Inserir novo";
+            this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
+            // 
+            // históricoToolStripMenuItem
+            // 
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
+            // 
+            // comentáriosAdminToolStripMenuItem
+            // 
+            this.comentáriosAdminToolStripMenuItem.Name = "comentáriosAdminToolStripMenuItem";
+            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
+            this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
+            // 
             // Lista_Equipamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,5 +344,8 @@ namespace Login
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.Button button1;
+        private ToolStripMenuItem inserirNovoToolStripMenuItem;
+        private ToolStripMenuItem históricoToolStripMenuItem;
+        private ToolStripMenuItem comentáriosAdminToolStripMenuItem;
     }
 }

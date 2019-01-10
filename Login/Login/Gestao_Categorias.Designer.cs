@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class Novo_Comentario
+    partial class Gestao_Categorias
     {
         /// <summary>
         /// Required designer variable.
@@ -33,17 +33,18 @@
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hitóricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Categorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -57,7 +58,7 @@
             this.comentáriosAdminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(847, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(844, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,7 +80,7 @@
             // 
             this.comentáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inserirNovoToolStripMenuItem,
-            this.hitóricoToolStripMenuItem});
+            this.históricoToolStripMenuItem});
             this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
             this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.comentáriosToolStripMenuItem.Text = "Comentários";
@@ -89,15 +90,15 @@
             // 
             this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
             this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.inserirNovoToolStripMenuItem.Text = "Inserir novo";
+            this.inserirNovoToolStripMenuItem.Text = "Inserir Novo";
             this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
             // 
-            // hitóricoToolStripMenuItem
+            // históricoToolStripMenuItem
             // 
-            this.hitóricoToolStripMenuItem.Name = "hitóricoToolStripMenuItem";
-            this.hitóricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.hitóricoToolStripMenuItem.Text = "Histórico ";
-            this.hitóricoToolStripMenuItem.Click += new System.EventHandler(this.hitóricoToolStripMenuItem_Click);
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // gestãoDeSalasToolStripMenuItem
             // 
@@ -107,7 +108,6 @@
             this.gestãoDeSalasToolStripMenuItem.Name = "gestãoDeSalasToolStripMenuItem";
             this.gestãoDeSalasToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.gestãoDeSalasToolStripMenuItem.Text = "Gestão (Admin)";
-            this.gestãoDeSalasToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeSalasToolStripMenuItem_Click);
             // 
             // salasToolStripMenuItem
             // 
@@ -119,9 +119,8 @@
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.categoriasToolStripMenuItem.Text = "Categorias";
-            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // comentáriosAdminToolStripMenuItem
             // 
@@ -130,70 +129,66 @@
             this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
             this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
             // 
-            // richTextBox1
+            // dataGridView1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(108, 122);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(648, 241);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Categorias});
+            this.dataGridView1.Location = new System.Drawing.Point(52, 69);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(363, 440);
+            this.dataGridView1.TabIndex = 10;
             // 
-            // label1
+            // button3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(104, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Inserir novo comentário";
+            this.button3.Location = new System.Drawing.Point(517, 250);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(229, 64);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Editar";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(104, 399);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Relativamente à requisição:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(344, 399);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(412, 24);
-            this.comboBox1.TabIndex = 13;
+            this.button2.Location = new System.Drawing.Point(517, 345);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(229, 64);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(108, 456);
+            this.button1.Location = new System.Drawing.Point(517, 155);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 42);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Submeter Comentário";
+            this.button1.Size = new System.Drawing.Size(229, 64);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Novo_Comentario
+            // Categorias
+            // 
+            this.Categorias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Categorias.HeaderText = "Categorias";
+            this.Categorias.Name = "Categorias";
+            // 
+            // Gestao_Categorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(847, 556);
+            this.ClientSize = new System.Drawing.Size(844, 555);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Name = "Novo_Comentario";
-            this.Text = "Comentarios";
-            this.Load += new System.EventHandler(this.Comentarios_Load);
+            this.Name = "Gestao_Categorias";
+            this.Text = "Gestao_Categorias";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,16 +200,16 @@
         private System.Windows.Forms.ToolStripMenuItem listaEquipamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comentáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inserirNovoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeSalasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comentáriosAdminToolStripMenuItem;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem inserirNovoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hitóricoToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categorias;
     }
 }

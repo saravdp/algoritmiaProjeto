@@ -50,7 +50,7 @@ namespace Login
                         Form home = new Lista_Equipamentos();
                         home.Closed += (s, args) => this.Close();
                         home.Show();
-                        MessageBox.Show( WindowsIdentity.GetCurrent().Token.ToString());
+                        MessageBox.Show( "TOKEN \t" + WindowsIdentity.GetCurrent().Token.ToString());
                         break;
                     }
                     else

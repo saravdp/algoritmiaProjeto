@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestao_Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestao_Categorias.Designer.cs">
+      <DependentUpon>Gestao_Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestao_Salas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestao_Salas.Designer.cs">
+      <DependentUpon>Gestao_Salas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historico_Comentarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     <Compile Include="Registo.Designer.cs">
       <DependentUpon>Registo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Gestao_Categorias.resx">
+      <DependentUpon>Gestao_Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestao_Salas.resx">
+      <DependentUpon>Gestao_Salas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Historico_Comentarios.resx">
       <DependentUpon>Historico_Comentarios.cs</DependentUpon>
     </EmbeddedResource>
