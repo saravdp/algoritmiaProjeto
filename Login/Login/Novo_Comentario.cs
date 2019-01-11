@@ -10,19 +10,32 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Consulta_Requisicoes : Form
+    public partial class Novo_Comentario : Form
     {
-        public Consulta_Requisicoes()
+        public Novo_Comentario()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Comentarios_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void hitóricoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form historico_comentarios = new Historico_Comentarios();
+            historico_comentarios.Closed += (s, args) => this.Close();
+            historico_comentarios.Show();
+        }
+
+        private void inserirNovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gestãoDeSalasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -30,16 +43,6 @@ namespace Login
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-<<<<<<< HEAD
-            Form listaEquipamentos = new Lista_Equipamentos();
-            listaEquipamentos.Closed += (s, args) => this.Close();
-            listaEquipamentos.Show();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-=======
             Form lista_equipamentos = new Lista_Equipamentos();
             lista_equipamentos.Closed += (s, args) => this.Close();
             lista_equipamentos.Show();
@@ -47,23 +50,15 @@ namespace Login
 
         private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            Form Consultar_Requisicoes = new Consulta_Requisicoes();
+            Consultar_Requisicoes.Closed += (s, args) => this.Close();
+            Consultar_Requisicoes.Show();
         }
 
-        private void inserirNovoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void comentáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form novo_comentario = new Novo_Comentario();
-            novo_comentario.Closed += (s, args) => this.Close();
-            novo_comentario.Show();
-        }
 
-        private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form historico_comentarios = new Historico_Comentarios();
-            historico_comentarios.Closed += (s, args) => this.Close();
-            historico_comentarios.Show();
         }
 
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +83,6 @@ namespace Login
             Form gestao_categorias = new Gestao_Categorias();
             gestao_categorias.Closed += (s, args) => this.Close();
             gestao_categorias.Show();
->>>>>>> master
         }
     }
 }

@@ -95,6 +95,7 @@ private void categorias_list()
         }
         private void dataGrid_load()
         {
+<<<<<<< HEAD
             String line;
              StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
              //Read the first line of text
@@ -133,6 +134,12 @@ private void categorias_list()
             Form consultarRequisicoes = new Consulta_Requisicoes();
             consultarRequisicoes.Closed += (s, args) => this.Close();
             consultarRequisicoes.Show();
+=======
+            this.Hide();
+            Form Consultar_Requisicoes = new Consulta_Requisicoes();
+            Consultar_Requisicoes.Closed += (s, args) => this.Close();
+            Consultar_Requisicoes.Show();
+>>>>>>> master
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -152,6 +159,7 @@ private void categorias_list()
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
            
         }
 
@@ -192,6 +200,54 @@ private void categorias_list()
 
 
 
+=======
+            
+        }
+
+        private void comentáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form comentarios_admin = new Comentarios_admin();
+            comentarios_admin.Closed += (s, args) => this.Close();
+            comentarios_admin.Show();
+        }
+
+        private void inserirNovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form novo_comentario = new Novo_Comentario();
+            novo_comentario.Closed += (s, args) => this.Close();
+            novo_comentario.Show();
+        }
+
+        private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form historico_comentarios = new Historico_Comentarios();
+            historico_comentarios.Closed += (s, args) => this.Close();
+            historico_comentarios.Show();
+        }
+
+        private void salasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form gestao_salas = new Gestao_Salas();
+            gestao_salas.Closed += (s, args) => this.Close();
+            gestao_salas.Show();
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form gestao_categorias = new Gestao_Categorias();
+            gestao_categorias.Closed += (s, args) => this.Close();
+            gestao_categorias.Show();
+>>>>>>> master
         }
     }
 }

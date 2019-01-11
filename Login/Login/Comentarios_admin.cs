@@ -10,36 +10,21 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Consulta_Requisicoes : Form
+    public partial class Comentarios_admin : Form
     {
-        public Consulta_Requisicoes()
+        public Comentarios_admin()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+           
         }
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-<<<<<<< HEAD
-            Form listaEquipamentos = new Lista_Equipamentos();
-            listaEquipamentos.Closed += (s, args) => this.Close();
-            listaEquipamentos.Show();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-=======
             Form lista_equipamentos = new Lista_Equipamentos();
             lista_equipamentos.Closed += (s, args) => this.Close();
             lista_equipamentos.Show();
@@ -47,7 +32,10 @@ namespace Login
 
         private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            Form Consultar_Requisicoes = new Consulta_Requisicoes();
+            Consultar_Requisicoes.Closed += (s, args) => this.Close();
+            Consultar_Requisicoes.Show();
         }
 
         private void inserirNovoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,10 +56,7 @@ namespace Login
 
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form comentarios_admin = new Comentarios_admin();
-            comentarios_admin.Closed += (s, args) => this.Close();
-            comentarios_admin.Show();
+            
         }
 
         private void salasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +73,6 @@ namespace Login
             Form gestao_categorias = new Gestao_Categorias();
             gestao_categorias.Closed += (s, args) => this.Close();
             gestao_categorias.Show();
->>>>>>> master
         }
     }
 }
