@@ -1,0 +1,3 @@
+ID;Nome;Categoria;Stock;Estado
+1;Pc Sony Vaio;Computadores;2;disponivel
+2;Maquina Fotografica Canon Q13;Maquinas;1;disponivel

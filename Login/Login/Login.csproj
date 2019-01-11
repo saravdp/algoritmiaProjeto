@@ -71,6 +71,7 @@
     <Compile Include="Registo.Designer.cs">
       <DependentUpon>Registo.cs</DependentUpon>
     </Compile>
+    <Compile Include="user.cs" />
     <EmbeddedResource Include="Consulta_Requisicoes.resx">
       <DependentUpon>Consulta_Requisicoes.cs</DependentUpon>
     </EmbeddedResource>

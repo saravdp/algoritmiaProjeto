@@ -10,7 +10,6 @@ C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Logi
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Registo.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Lista_Equipamentos.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Login.resources
-<<<<<<< HEAD
 C:\Users\sarav\algoritmiaProjeto\Login\Login\bin\Debug\Login.exe.config
 C:\Users\sarav\algoritmiaProjeto\Login\Login\bin\Debug\Login.exe
 C:\Users\sarav\algoritmiaProjeto\Login\Login\bin\Debug\Login.pdb
@@ -23,6 +22,5 @@ C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.csproj.GenerateReso
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.csproj.CoreCompileInputs.cache
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.exe
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.pdb
-=======
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Consulta_Requisicoes.resources
->>>>>>> master
+C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Consulta_Requisicoes.resources

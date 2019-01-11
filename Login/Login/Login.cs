@@ -12,10 +12,14 @@ using System.Security.Principal;
 
 namespace Login
 {
+
+
+
     public partial class Login : Form
     {
         public string username;
         public string password;
+
         public Login()
         {
             InitializeComponent();
@@ -51,6 +55,7 @@ namespace Login
                         home.Closed += (s, args) => this.Close();
                         home.Show();
                         MessageBox.Show( WindowsIdentity.GetCurrent().Token.ToString());
+                        user logged = new user(username);
                         break;
                     }
                     else
