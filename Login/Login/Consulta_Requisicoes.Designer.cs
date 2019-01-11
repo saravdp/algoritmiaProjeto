@@ -1,4 +1,4 @@
-﻿namespace Login
+namespace Login
 {
     partial class Consulta_Requisicoes
     {
@@ -81,16 +81,10 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-<<<<<<< HEAD
-            this.radioButton3.Location = new System.Drawing.Point(19, 71);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(152, 17);
-=======
+
             this.radioButton3.Location = new System.Drawing.Point(25, 87);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(196, 21);
->>>>>>> master
             this.radioButton3.TabIndex = 4;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Requisições e Devoluções";
@@ -111,16 +105,10 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-<<<<<<< HEAD
-            this.radioButton1.Location = new System.Drawing.Point(19, 27);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 17);
-=======
+
             this.radioButton1.Location = new System.Drawing.Point(25, 33);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(106, 21);
->>>>>>> master
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Requisições";
@@ -150,32 +138,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-<<<<<<< HEAD
-            this.label5.Location = new System.Drawing.Point(4, 210);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-=======
+
             this.label5.Location = new System.Drawing.Point(6, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 17);
->>>>>>> master
             this.label5.TabIndex = 9;
             this.label5.Text = "Docente";
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-<<<<<<< HEAD
-            this.comboBox3.Location = new System.Drawing.Point(7, 226);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(151, 21);
-=======
+
             this.comboBox3.Location = new System.Drawing.Point(9, 278);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(200, 24);
->>>>>>> master
             this.comboBox3.TabIndex = 8;
             // 
             // label4
@@ -202,92 +178,54 @@
             // label3
             // 
             this.label3.AutoSize = true;
-<<<<<<< HEAD
-            this.label3.Location = new System.Drawing.Point(4, 132);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
-=======
+
             this.label3.Location = new System.Drawing.Point(6, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 17);
->>>>>>> master
             this.label3.TabIndex = 5;
             this.label3.Text = "Sala";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-<<<<<<< HEAD
-            this.label2.Location = new System.Drawing.Point(4, 74);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
-=======
+
             this.label2.Location = new System.Drawing.Point(6, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 17);
->>>>>>> master
             this.label2.TabIndex = 4;
             this.label2.Text = "Até";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-<<<<<<< HEAD
-            this.label1.Location = new System.Drawing.Point(4, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-=======
             this.label1.Location = new System.Drawing.Point(6, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
->>>>>>> master
             this.label1.TabIndex = 3;
             this.label1.Text = "Desde";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-<<<<<<< HEAD
-            this.comboBox1.Location = new System.Drawing.Point(36, 129);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(122, 21);
-=======
             this.comboBox1.Location = new System.Drawing.Point(48, 159);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(161, 24);
->>>>>>> master
             this.comboBox1.TabIndex = 2;
             // 
             // dateTimePicker2
             // 
-<<<<<<< HEAD
-            this.dateTimePicker2.Location = new System.Drawing.Point(7, 90);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(151, 20);
-=======
+
             this.dateTimePicker2.Location = new System.Drawing.Point(9, 111);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
->>>>>>> master
             this.dateTimePicker2.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
-<<<<<<< HEAD
-            this.dateTimePicker1.Location = new System.Drawing.Point(7, 45);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-=======
+
             this.dateTimePicker1.Location = new System.Drawing.Point(9, 55);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
->>>>>>> master
             this.dateTimePicker1.TabIndex = 0;
             // 
             // dataGridView1
@@ -384,22 +322,15 @@
             // salasToolStripMenuItem
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-<<<<<<< HEAD
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-=======
             this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
->>>>>>> master
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-<<<<<<< HEAD
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-=======
+
             this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
->>>>>>> master
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
