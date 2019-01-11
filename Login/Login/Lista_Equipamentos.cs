@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -95,7 +95,6 @@ private void categorias_list()
         }
         private void dataGrid_load()
         {
-<<<<<<< HEAD
             String line;
              StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
              //Read the first line of text
@@ -134,12 +133,7 @@ private void categorias_list()
             Form consultarRequisicoes = new Consulta_Requisicoes();
             consultarRequisicoes.Closed += (s, args) => this.Close();
             consultarRequisicoes.Show();
-=======
-            this.Hide();
-            Form Consultar_Requisicoes = new Consulta_Requisicoes();
-            Consultar_Requisicoes.Closed += (s, args) => this.Close();
-            Consultar_Requisicoes.Show();
->>>>>>> master
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -159,7 +153,6 @@ private void categorias_list()
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
            
         }
 
@@ -197,10 +190,6 @@ private void categorias_list()
 
             user username = new user();
             MessageBox.Show(username.email);
-
-
-
-=======
             
         }
 
@@ -247,7 +236,7 @@ private void categorias_list()
             Form gestao_categorias = new Gestao_Categorias();
             gestao_categorias.Closed += (s, args) => this.Close();
             gestao_categorias.Show();
->>>>>>> master
+
         }
     }
 }
