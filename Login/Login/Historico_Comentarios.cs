@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,90 @@ namespace Login
 {
     public partial class Historico_Comentarios : Form
     {
+        public string username;
+        public string userType;
         public Historico_Comentarios()
         {
             InitializeComponent();
+            getUsernameAndUserType();
+            navBar();
+            On_Load();
+            
+        }
+        public void getUsernameAndUserType()
+        {
+            StreamReader sa = File.OpenText("Ficheiros de texto/userLogged"); //get username
+            username = sa.ReadLine();
+            sa.Close();
+            //get usertype
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            string[] parts = line.Split(';');
+            while (line != null)
+            {
+                parts = line.Split(';');
+                if (parts[1] == username)
+                {
+                    userType = parts[4];
+                }
+                line = sr.ReadLine();
+            } 
+            sr.Close();
+        }
+        private void On_Load()
+        {
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            int a = 0;
+            DataTable dt = new DataTable();
+            string[] parts = line.Split(';');
+            //CABEÇALHO
+            for (int i = 2; i < parts.Length; i++)
+            {
+                dt.Columns.Add(parts[i]);
+            }
+            while (line != null)
+            {
+                string estadoResposta = "";
+                string resposta = "";
+                parts = line.Split(';');
+                if (a != 0)
+                {
+                    if (parts[4] == "1")
+                    {
+                        estadoResposta = "Respondido";
+                    }
+                    else if (parts[4] == "0")
+                    {
+                        estadoResposta = "Por Responder";
+                    }
+                    if (parts[5] == "0")
+                    {
+                        resposta = "";
+                    }
+                    else
+                    {
+                        resposta = parts[5];
+                    } 
+
+                    if (username==parts[1]) {
+                        dt.Rows.Add(parts[2], parts[3], estadoResposta, resposta);
+                    }
+                }
+                line = sr.ReadLine();
+                a++;
+            }
+
+
+            //    }
+
+            this.dataGridView1.DataSource = dt;
+            //dataGridView1.AllowUserToAddRows = false; //do not show the last line    
+            sr.Close();
         }
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +127,13 @@ namespace Login
         {
             
         }
-
+        public void navBar()
+        {
+            if (userType == "docente")
+            {
+                comentáriosAdminToolStripMenuItem.Visible=false;
+            }
+        }
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -68,6 +156,40 @@ namespace Login
             Form gestao_categorias = new Gestao_Categorias();
             gestao_categorias.Closed += (s, args) => this.Close();
             gestao_categorias.Show();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {//Checkbox filters
+         /*   String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            DataTable dt = new DataTable();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            int cont = 0;
+            while (line != null)
+            {
+                string[] parts = line.Split(';');
+                string value = "0";
+                bs.Filter = "[Estado do Comentario] Like '%" + parts[4] + "%'";
+                dataGridView1.DataSource = bs;
+                line = sr.ReadLine();
+                cont++;
+
+            }*/
+            
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+          /*  DataTable dt = new DataTable();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            string value = "0";
+            bs.Filter = "[Estado do Comentario] Like '%" + value+ "%'";
+            dataGridView1.DataSource = bs;*/
         }
     }
 }

@@ -14,16 +14,32 @@ namespace Login
     public partial class Lista_Equipamentos : Form
     {
 
+        CheckBox[] box = new CheckBox[20] { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+
         public Lista_Equipamentos()
         {
             InitializeComponent();
             categorias_list();
             dataGrid_load();
             filters();
+            On_Load();
 
-            
         }
-        private void filters() {
+        private void On_Load()
+        {
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/salas.txt");
+            line = sr.ReadLine();
+            while (line != null)
+            {
+                comboBox1.Items.Add(line);
+                line = sr.ReadLine();
+
+            }
+            sr.Close();
+        }
+        private void filters()
+        {
             int a = 0;
             String line;
             StreamReader sr = new StreamReader("Ficheiros de Texto/categorias.txt");
@@ -37,8 +53,8 @@ namespace Login
                 string[] parts = line.Split(delimiters);
                 string RowFilter = string.Empty;
                 //---------------------------------------------IMP.FILTERS
-             //   CreateOrAppendToFilter(box[a], ref RowFilter);
-                
+                //   CreateOrAppendToFilter(box[a], ref RowFilter);
+
                 if (RowFilter.Length > 0)
                 {
                     try
@@ -58,23 +74,22 @@ namespace Login
                 a++;
             }
             sr.Close();
+        }
+        private void CreateOrAppendToFilter(CheckBox cb, ref string RowFilter)
+        {
+            if (RowFilter.Length > 0)
+            {
+                RowFilter += " OR ";
             }
-                private void CreateOrAppendToFilter(CheckBox cb, ref string RowFilter)
-{
-    if (RowFilter.Length > 0)
-    {
-        RowFilter += " OR ";
-    }
-    RowFilter += (cb.Checked) ? string.Format("[AreaCode] = {0}", cb.Text.Trim()) : string.Empty;
-}
-private void categorias_list()
+            RowFilter += (cb.Checked) ? string.Format("[AreaCode] = {0}", cb.Text.Trim()) : string.Empty;
+        }
+        private void categorias_list()
         {
             int a = 0;
             String line;
             StreamReader sr = new StreamReader("Ficheiros de Texto/categorias.txt");
             //Read the first line of text
             line = sr.ReadLine();
-            CheckBox[] box = new CheckBox[20];
             groupBox1.Enabled = true;
             while (line != null)
             {
@@ -96,18 +111,18 @@ private void categorias_list()
         private void dataGrid_load()
         {
             String line;
-             StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
-             //Read the first line of text
-             line = sr.ReadLine();
+            StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
             DataTable dt = new DataTable();
             int a = 0;
             char delimiters = ';';
             string[] parts = line.Split(delimiters);
             //CABEÇALHO
             for (int i = 0; i < parts.Length; i++)
-                {
+            {
                 dt.Columns.Add(parts[i]);
-                }
+            }
             while (line != null)
             {
                 parts = line.Split(delimiters);
@@ -124,7 +139,7 @@ private void categorias_list()
 
             this.dataGridView1.DataSource = dt;
             //dataGridView1.AllowUserToAddRows = false; //do not show the last line    
-               sr.Close();
+            sr.Close();
         }
 
         private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -153,49 +168,100 @@ private void categorias_list()
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-       
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-            
+
 
         }
         private void Form1_Activated(object sender, System.EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Cria ficheiro de texto para o dia se nao existir e escreve o user, data,hora,sala,tipo_objeto 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-
-                if (this.dataGridView1.SelectedRows.Count == 1)
-                {
-                    // get information of 1st column from the row
-                    string selectedUser = this.dataGridView1.SelectedRows[0].Cells[0].ToString();
-                }
-            }
             DateTime dataReq = DateTime.Now;
-            MessageBox.Show(dataReq.ToString("d"));//data
-            //string[] parts= 
-            MessageBox.Show(dataReq.ToString("%h"));//hora 
+            string nameFile = "Ficheiros de Texto/Requisicoes/R_" + dataReq.ToString("ddMMyy");
+            string[] parts;
+            int id=0;//= Convert.ToInt16(parts[0]);
+            if (comboBox1.Text != "")
+            {//Cria ficheiro de texto para o dia se nao existir e escreve o user, data,hora,sala,tipo_objeto 
+                StreamWriter sw;
+                StreamReader sr = File.OpenText("Ficheiros de texto/userLogged");
+                String.Format("{0:MM dd yy}", dataReq);
+                string categoria = "";
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
 
-            user username = new user();
-            MessageBox.Show(username.email);
-            
+                    if (this.dataGridView1.SelectedRows.Count == 1)
+                    {
+
+                        // get information of 1st column from the row
+                        string selected = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                        categoria = selected;
+                    }
+                }
+                if (File.Exists(nameFile))
+                {
+                    var lastLine = File.ReadLines(nameFile).Last();
+                    parts = lastLine.Split(';');
+                    id = Convert.ToInt16(parts[0])+1;
+                    sw = File.AppendText(nameFile);
+                }
+                else
+                {
+                    sw = File.CreateText(nameFile);
+                }
+                string user = sr.ReadLine();
+                sr.Close();
+                string data = dataReq.ToString("dd-MM-yyyy"); ;
+                string hora = String.Format("{0:t}", dataReq).ToString();
+                string sala = comboBox1.Text;
+                string line;
+                string cat = "";
+                
+
+                StreamReader file = new StreamReader("Ficheiros de texto/categorias.txt");
+                while ((line = file.ReadLine()) != null)
+                {
+                     parts = line.Split(';');
+
+
+                    if (parts[1] == categoria)
+                    {
+
+                        cat = parts[0];
+                        break;
+                    }
+
+                }
+
+                string tipoObjeto = cat;
+                id = id + 1;
+                // MessageBox.Show("Resumo de requisição:  \n Sala: {0} \n ");
+                sw.WriteLine("\n"+id+";"+user + ";" + data + ";" + hora + ";" + sala + ";" + tipoObjeto);
+                MessageBox.Show("Requisitado!");
+
+                sw.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("É obrigatório escolher uma sala!");
+            }
         }
 
         private void comentáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -238,5 +304,61 @@ private void categorias_list()
             gestao_categorias.Show();
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string[] cats = new string[20];
+            int i = 0;
+            int a = 0;
+            while (box[a] != null)
+            {
+                if (box[a].CheckState.ToString() == "Checked")
+                {
+                    cats[i] = box[a].Text;
+                    i++;
+                }
+                //MessageBox.Show(box[a].CheckState.ToString());
+                a++;
+            }
+
+
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            int cont = 0;
+            int counter = 1;
+            DataTable dt = new DataTable();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+
+            while (line != null)
+            {
+                string[] parts = line.Split(';');
+                if (a != 0)
+                {
+
+                    while (cats[cont] != null)//Compara cada linha com o array das categorias selecionadas
+                    {
+                        if (parts[2] == cats[cont])
+                        {
+                            bs.Filter = "[Categoria] Like '%" + cats[cont] + "%'";//Só permite uma categoria
+                            dataGridView1.DataSource = bs;
+                        }
+                        cont++;
+                    }
+                }
+                line = sr.ReadLine();
+                a++;
+                counter++;
+                cont = 0;
+            }
+        }
+
+
     }
 }

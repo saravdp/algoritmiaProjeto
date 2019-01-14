@@ -39,10 +39,8 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Categorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,21 +56,22 @@
             this.comentáriosAdminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(844, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(633, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // listaEquipamentosToolStripMenuItem
             // 
             this.listaEquipamentosToolStripMenuItem.Name = "listaEquipamentosToolStripMenuItem";
-            this.listaEquipamentosToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
+            this.listaEquipamentosToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
             this.listaEquipamentosToolStripMenuItem.Text = "Lista Equipamentos";
             this.listaEquipamentosToolStripMenuItem.Click += new System.EventHandler(this.listaEquipamentosToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
             this.consultasToolStripMenuItem.Text = "Consultar Requisições";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
@@ -82,21 +81,21 @@
             this.inserirNovoToolStripMenuItem,
             this.históricoToolStripMenuItem});
             this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
-            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.comentáriosToolStripMenuItem.Text = "Comentários";
             this.comentáriosToolStripMenuItem.Click += new System.EventHandler(this.comentáriosToolStripMenuItem_Click);
             // 
             // inserirNovoToolStripMenuItem
             // 
             this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
-            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.inserirNovoToolStripMenuItem.Text = "Inserir Novo";
             this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
             // 
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
@@ -106,84 +105,72 @@
             this.salasToolStripMenuItem,
             this.categoriasToolStripMenuItem});
             this.gestãoDeSalasToolStripMenuItem.Name = "gestãoDeSalasToolStripMenuItem";
-            this.gestãoDeSalasToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.gestãoDeSalasToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.gestãoDeSalasToolStripMenuItem.Text = "Gestão (Admin)";
             // 
             // salasToolStripMenuItem
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             // 
             // comentáriosAdminToolStripMenuItem
             // 
             this.comentáriosAdminToolStripMenuItem.Name = "comentáriosAdminToolStripMenuItem";
-            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
             this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Categorias});
-            this.dataGridView1.Location = new System.Drawing.Point(52, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(39, 56);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(363, 440);
+            this.dataGridView1.Size = new System.Drawing.Size(272, 358);
             this.dataGridView1.TabIndex = 10;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(517, 250);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(229, 64);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Editar";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(517, 345);
+            this.button2.Location = new System.Drawing.Point(388, 280);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(229, 64);
+            this.button2.Size = new System.Drawing.Size(172, 52);
             this.button2.TabIndex = 14;
             this.button2.Text = "Remover";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(517, 155);
+            this.button1.Location = new System.Drawing.Point(388, 126);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 64);
+            this.button1.Size = new System.Drawing.Size(172, 52);
             this.button1.TabIndex = 13;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // Categorias
-            // 
-            this.Categorias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categorias.HeaderText = "Categorias";
-            this.Categorias.Name = "Categorias";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Gestao_Categorias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(844, 555);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(633, 451);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Gestao_Categorias";
             this.Text = "Gestao_Categorias";
             this.menuStrip1.ResumeLayout(false);
@@ -207,9 +194,7 @@
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comentáriosAdminToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorias;
     }
 }

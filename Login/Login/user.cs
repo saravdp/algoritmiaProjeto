@@ -40,5 +40,18 @@ namespace Login
                 line = sr.ReadLine();
             }
         }
+        public void setNome(string nome)
+        {
+            this.nome = nome;
+        }
+
+        public string getNome()
+        {
+            return this.nome;
+        }
+
+       
+        
+
     }
 }

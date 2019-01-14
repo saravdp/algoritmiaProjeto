@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,7 @@ namespace Login
     {
         public string username;
         public string password;
-
+        user utilizador = new user();
         public Login()
         {
             InitializeComponent();
@@ -54,12 +54,12 @@ namespace Login
                         Form home = new Lista_Equipamentos();
                         home.Closed += (s, args) => this.Close();
                         home.Show();
-<<<<<<< HEAD
-                        MessageBox.Show( WindowsIdentity.GetCurrent().Token.ToString());
-                        user logged = new user(username);
-=======
+                        utilizador.setNome(username);
                         MessageBox.Show( "TOKEN \t" + WindowsIdentity.GetCurrent().Token.ToString());
->>>>>>> master
+                        StreamWriter sw =  File.CreateText("Ficheiros de Texto/userLogged");
+                        sw.WriteLine(username);
+                        sw.Close();
+                       MessageBox.Show("Bem vindo: "+ utilizador.getNome());
                         break;
                     }
                     else

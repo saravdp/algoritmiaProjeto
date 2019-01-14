@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Security.Principal;
 using System.Windows.Forms;
 
@@ -36,26 +36,18 @@ namespace Login
             this.listaEquipamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-=======
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
->>>>>>> master
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -92,19 +84,27 @@ namespace Login
             // 
             // comentáriosToolStripMenuItem
             // 
-<<<<<<< HEAD
-            this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
-            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.comentáriosToolStripMenuItem.Text = "Comentários";
-=======
             this.comentáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inserirNovoToolStripMenuItem,
             this.históricoToolStripMenuItem});
             this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
-            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.comentáriosToolStripMenuItem.Text = "Comentários";
             this.comentáriosToolStripMenuItem.Click += new System.EventHandler(this.comentáriosToolStripMenuItem_Click);
->>>>>>> master
+            // 
+            // inserirNovoToolStripMenuItem
+            // 
+            this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
+            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.inserirNovoToolStripMenuItem.Text = "Inserir novo";
+            this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
+            // 
+            // históricoToolStripMenuItem
+            // 
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // gestãoDeSalasToolStripMenuItem
             // 
@@ -116,141 +116,35 @@ namespace Login
             this.gestãoDeSalasToolStripMenuItem.Text = "Gestão (Admin)";
             // 
             // salasToolStripMenuItem
-<<<<<<< HEAD
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
             this.salasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.salasToolStripMenuItem.Text = "Salas";
-=======
-            // 
-            this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
-            // groupBox1
+            // comentáriosAdminToolStripMenuItem
             // 
-            this.groupBox1.Controls.Add(this.checkBox8);
-            this.groupBox1.Controls.Add(this.checkBox7);
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(22, 43);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 393);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Categorias";
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(19, 221);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(86, 21);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "Arduinos";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(19, 194);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(120, 21);
-            this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "Greenscreens";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(19, 167);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(122, 21);
-            this.checkBox6.TabIndex = 5;
-            this.checkBox6.Text = "Computadores";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(19, 140);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(66, 21);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Video";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(19, 113);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(86, 21);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Camaras";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(19, 86);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(97, 21);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Comandos";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(19, 59);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(95, 21);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Projetores";
-            this.checkBox2.UseVisualStyleBackColor = true;
->>>>>>> master
-            // 
-            // checkBox1
-            // 
-<<<<<<< HEAD
-            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.categoriasToolStripMenuItem.Text = "Categorias";
-=======
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(19, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 21);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Chaves";
-            this.checkBox1.UseVisualStyleBackColor = true;
->>>>>>> master
+            this.comentáriosAdminToolStripMenuItem.Name = "comentáriosAdminToolStripMenuItem";
+            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
+            this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
+            this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(11, 35);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(150, 319);
+            this.groupBox1.Size = new System.Drawing.Size(176, 311);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorias";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+           // this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // dataGridView1
             // 
@@ -267,7 +161,7 @@ namespace Login
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(188, 369);
+            this.button1.Location = new System.Drawing.Point(499, 370);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 41);
@@ -276,26 +170,33 @@ namespace Login
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // inserirNovoToolStripMenuItem
+            // label1
             // 
-            this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
-            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.inserirNovoToolStripMenuItem.Text = "Inserir novo";
-            this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(280, 387);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Sala";
             // 
-            // históricoToolStripMenuItem
+            // comboBox1
             // 
-            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.históricoToolStripMenuItem.Text = "Histórico";
-            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(323, 384);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comentáriosAdminToolStripMenuItem
+            // button2
             // 
-            this.comentáriosAdminToolStripMenuItem.Name = "comentáriosAdminToolStripMenuItem";
-            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
-            this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
-            this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
+            this.button2.Location = new System.Drawing.Point(12, 377);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(176, 32);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Aplicar Filtros";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Lista_Equipamentos
             // 
@@ -303,6 +204,9 @@ namespace Login
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(635, 462);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -334,5 +238,8 @@ namespace Login
         private ToolStripMenuItem inserirNovoToolStripMenuItem;
         private ToolStripMenuItem históricoToolStripMenuItem;
         private ToolStripMenuItem comentáriosAdminToolStripMenuItem;
+        private Label label1;
+        private ComboBox comboBox1;
+        private Button button2;
     }
 }

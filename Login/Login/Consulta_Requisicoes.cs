@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,16 +30,7 @@ namespace Login
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-<<<<<<< HEAD
-            Form listaEquipamentos = new Lista_Equipamentos();
-            listaEquipamentos.Closed += (s, args) => this.Close();
-            listaEquipamentos.Show();
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-=======
             Form lista_equipamentos = new Lista_Equipamentos();
             lista_equipamentos.Closed += (s, args) => this.Close();
             lista_equipamentos.Show();
@@ -88,7 +79,6 @@ namespace Login
             Form gestao_categorias = new Gestao_Categorias();
             gestao_categorias.Closed += (s, args) => this.Close();
             gestao_categorias.Show();
->>>>>>> master
         }
     }
 }

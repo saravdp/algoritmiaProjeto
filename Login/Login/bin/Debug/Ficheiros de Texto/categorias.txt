@@ -1,3 +1,4 @@
+ID;Categoria
 01;Chaves
 02;Projetores
 03;Comandos

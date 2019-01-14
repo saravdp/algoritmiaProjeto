@@ -1,0 +1,4 @@
+ID;User;IdRequisicao;Comentario;Estado do Comentario;Resposta
+0;a;1;Esta avariado;1;para a sucata
+1;b;2;Esta partido;0;0
+1;a;2;Esta partido;0;0
