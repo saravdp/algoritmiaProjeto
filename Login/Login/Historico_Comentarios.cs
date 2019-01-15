@@ -47,6 +47,9 @@ namespace Login
         }
         private void On_Load()
         {
+            //TO DO
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             String line;
             StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
             //Read the first line of text
@@ -97,6 +100,15 @@ namespace Login
             this.dataGridView1.DataSource = dt;
             //dataGridView1.AllowUserToAddRows = false; //do not show the last line    
             sr.Close();
+
+            //Não permite editar visualmente as DataGrids
+            if (userType == "docente")
+            {
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            }
+            
+
         }
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,9 +141,11 @@ namespace Login
         }
         public void navBar()
         {
+            //GESTAO DE PERFIS
             if (userType == "docente")
             {
                 comentáriosAdminToolStripMenuItem.Visible=false;
+                gestãoDeSalasToolStripMenuItem.Visible = false; 
             }
         }
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,25 +174,30 @@ namespace Login
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {//Checkbox filters
-         /*   String line;
-            StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
-            //Read the first line of text
-            line = sr.ReadLine();
-            DataTable dt = new DataTable();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            int cont = 0;
-            while (line != null)
+            if (radioButton1.Checked == true)
             {
-                string[] parts = line.Split(';');
-                string value = "0";
-                bs.Filter = "[Estado do Comentario] Like '%" + parts[4] + "%'";
-                dataGridView1.DataSource = bs;
+                String line;
+                StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
+                //Read the first line of text
                 line = sr.ReadLine();
-                cont++;
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dataGridView1.DataSource;
+                int cont = 0;
+                while (line != null)
+                {
+                    string[] parts = line.Split(';');
+                    string value = "0";
+                    MessageBox.Show("");
+                     bs.Filter = "[Estado do Comentario] Like '%"+value+"%'";
 
-            }*/
-            
+                   // bs.Filter = "Estado do Comentario Like value";
+                    dataGridView1.DataSource = bs;
+                    line = sr.ReadLine();
+                    cont++;
+
+                }
+            }
 
         }
 

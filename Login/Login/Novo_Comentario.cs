@@ -13,13 +13,57 @@ namespace Login
 {
     public partial class Novo_Comentario : Form
     {
+        public string username;
+        public string userType;
         string user = "";
         string idreq = "";
+
+
+        
+
+
         public Novo_Comentario()
         {
             InitializeComponent();
+            getUsernameAndUserType();
+            navBar();
             On_load();
         }
+
+        public void getUsernameAndUserType()
+        {
+            StreamReader sa = File.OpenText("Ficheiros de texto/userLogged"); //get username
+            username = sa.ReadLine();
+            sa.Close();
+            //get usertype
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            string[] parts = line.Split(';');
+            while (line != null)
+            {
+                parts = line.Split(';');
+                if (parts[1] == username)
+                {
+                    userType = parts[4];
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+        }
+
+        public void navBar()
+        {
+            //GESTAO DE PERFIS
+            if (userType == "docente")
+            {
+                comentáriosAdminToolStripMenuItem.Visible = false;
+                gestãoDeSalasToolStripMenuItem.Visible = false;
+            }
+
+        }
+
         public void On_load()
         {
             StreamReader sr = File.OpenText("Ficheiros de texto/userLogged");

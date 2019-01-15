@@ -13,10 +13,37 @@ namespace Login
 {
     public partial class Gestao_Categorias : Form
     {
+        public string username;
+        public string userType;
         public Gestao_Categorias()
         {
             InitializeComponent();
+            getUsernameAndUserType();
+            navBar();
             On_Load();
+        }
+
+        public void getUsernameAndUserType()
+        {
+            StreamReader sa = File.OpenText("Ficheiros de texto/userLogged"); //get username
+            username = sa.ReadLine();
+            sa.Close();
+            //get usertype
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            string[] parts = line.Split(';');
+            while (line != null)
+            {
+                parts = line.Split(';');
+                if (parts[1] == username)
+                {
+                    userType = parts[4];
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
         }
 
         private void On_Load()
@@ -42,6 +69,23 @@ namespace Login
             }
             this.dataGridView1.DataSource = dt;
             sr.Close();
+
+            //Não permite editar visualmente as DataGrids
+            if (userType == "docente")
+            {
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            }
+        }
+
+        public void navBar()
+        {
+            //GESTAO DE PERFIS
+            if (userType == "admin")
+            {
+                consultasToolStripMenuItem.Visible = false;
+                comentáriosToolStripMenuItem.Visible = false;
+            }
         }
 
         private void salasToolStripMenuItem_Click(object sender, EventArgs e)

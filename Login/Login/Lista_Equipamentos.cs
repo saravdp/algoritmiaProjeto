@@ -13,18 +13,48 @@ namespace Login
 {
     public partial class Lista_Equipamentos : Form
     {
+        public string username;
+        public string userType;
 
         CheckBox[] box = new CheckBox[20] { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
 
         public Lista_Equipamentos()
         {
             InitializeComponent();
+            getUsernameAndUserType();
+            navBar();
             categorias_list();
             dataGrid_load();
             filters();
             On_Load();
 
         }
+
+
+
+        public void getUsernameAndUserType()
+        {
+            StreamReader sa = File.OpenText("Ficheiros de texto/userLogged"); //get username
+            username = sa.ReadLine();
+            sa.Close();
+            //get usertype
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            string[] parts = line.Split(';');
+            while (line != null)
+            {
+                parts = line.Split(';');
+                if (parts[1] == username)
+                {
+                    userType = parts[4];
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+        }
+
         private void On_Load()
         {
             String line;
@@ -37,7 +67,38 @@ namespace Login
 
             }
             sr.Close();
+
+            //Não permite editar visualmente as DataGrids
+            if (userType == "docente")
+            {
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            }
         }
+
+        public void navBar()
+        {
+            //GESTAO DE PERFIS
+            if (userType == "docente")
+            {
+                comentáriosAdminToolStripMenuItem.Visible = false;
+                gestãoDeSalasToolStripMenuItem.Visible = false;
+            }
+            else if (userType == "admin")
+            {
+                consultasToolStripMenuItem.Visible = false;
+                comentáriosToolStripMenuItem.Visible = false;
+
+            }
+            else if (userType == "seguranca")
+            {
+                comentáriosToolStripMenuItem.Visible = false;
+                consultasToolStripMenuItem.Visible = false;
+                gestãoDeSalasToolStripMenuItem.Visible = false;
+            }
+        }
+
+
         private void filters()
         {
             int a = 0;

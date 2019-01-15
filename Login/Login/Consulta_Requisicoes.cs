@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,59 @@ namespace Login
 {
     public partial class Consulta_Requisicoes : Form
     {
+        public string username;
+        public string userType;
         public Consulta_Requisicoes()
         {
             InitializeComponent();
+            getUsernameAndUserType();
+            navBar();
+            On_Load();
+
+        }
+
+        public void getUsernameAndUserType()
+        {
+            StreamReader sa = File.OpenText("Ficheiros de texto/userLogged"); //get username
+            username = sa.ReadLine();
+            sa.Close();
+            //get usertype
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            string[] parts = line.Split(';');
+            while (line != null)
+            {
+                parts = line.Split(';');
+                if (parts[1] == username)
+                {
+                    userType = parts[4];
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+        }
+
+        public void navBar()
+        {
+            //GESTAO DE PERFIS
+            if (userType == "docente")
+            {
+                comentáriosAdminToolStripMenuItem.Visible = false;
+                gestãoDeSalasToolStripMenuItem.Visible = false;
+            }
+            
+        }
+
+        private void On_Load()
+        {
+            //Não permite editar visualmente as DataGrids
+            if (userType == "docente")
+            {
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
