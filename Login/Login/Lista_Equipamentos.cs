@@ -22,11 +22,10 @@ namespace Login
         {
             InitializeComponent();
             getUsernameAndUserType();
-            navBar();
-            categorias_list();
-            dataGrid_load();
-            filters();
             On_Load();
+            navBar();
+            Categorias_list();
+            dataGrid_load();
 
         }
 
@@ -58,13 +57,24 @@ namespace Login
         private void On_Load()
         {
             String line;
+            int cont = 0;
             StreamReader sr = new StreamReader("Ficheiros de Texto/salas.txt");
             line = sr.ReadLine();
             while (line != null)
             {
-                comboBox1.Items.Add(line);
-                line = sr.ReadLine();
+                if (cont == 0)
+                {
+                    cont++;
+                }
+                if (cont != 1)
+                {
+                     string[] parts = line.Split(';');
+                     comboBox1.Items.Add(parts[1]);
+                    
+                }
 
+                cont++;
+                line = sr.ReadLine();
             }
             sr.Close();
 
@@ -99,43 +109,7 @@ namespace Login
         }
 
 
-        private void filters()
-        {
-            int a = 0;
-            String line;
-            StreamReader sr = new StreamReader("Ficheiros de Texto/categorias.txt");
-            //Read the first line of text
-            line = sr.ReadLine();
-            CheckBox[] box = new CheckBox[20];
-            groupBox1.Enabled = true;
-            while (line != null)
-            {
-                char delimiters = ';';
-                string[] parts = line.Split(delimiters);
-                string RowFilter = string.Empty;
-                //---------------------------------------------IMP.FILTERS
-                //   CreateOrAppendToFilter(box[a], ref RowFilter);
-
-                if (RowFilter.Length > 0)
-                {
-                    try
-                    {
-                        DataTable dt = new DataTable();
-                        //Check an see what's in the dgv
-                        DataView dv = new DataView(dt);
-                        dv.RowFilter = RowFilter;
-                        dataGridView1.DataSource = dv;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Can’t find the column", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                line = sr.ReadLine();
-                a++;
-            }
-            sr.Close();
-        }
+       
         private void CreateOrAppendToFilter(CheckBox cb, ref string RowFilter)
         {
             if (RowFilter.Length > 0)
@@ -144,7 +118,7 @@ namespace Login
             }
             RowFilter += (cb.Checked) ? string.Format("[AreaCode] = {0}", cb.Text.Trim()) : string.Empty;
         }
-        private void categorias_list()
+        private void Categorias_list()
         {
             int a = 0;
             String line;
@@ -194,10 +168,7 @@ namespace Login
                 line = sr.ReadLine();
                 a++;
             }
-
-
             //    }
-
             this.dataGridView1.DataSource = dt;
             //dataGridView1.AllowUserToAddRows = false; //do not show the last line    
             sr.Close();
@@ -308,7 +279,7 @@ namespace Login
                 string tipoObjeto = cat;
                 id = id + 1;
                 // MessageBox.Show("Resumo de requisição:  \n Sala: {0} \n ");
-                sw.WriteLine("\n"+id+";"+user + ";" + data + ";" + hora + ";" + sala + ";" + tipoObjeto);
+                sw.WriteLine("\n"+id+";"+user + ";" + data + ";" + hora + ";" + sala + ";" + tipoObjeto+"; ; ");
                 MessageBox.Show("Requisitado!");
 
                 sw.Close();
@@ -420,6 +391,17 @@ namespace Login
             }
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
+        }
+
+        private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form devolucoes = new Devolucoes();
+            devolucoes.Closed += (s, args) => this.Close();
+            devolucoes.Show();
+        }
     }
 }

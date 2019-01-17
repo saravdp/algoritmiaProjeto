@@ -34,3 +34,4 @@ C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Gestao_Salas.resour
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Historico_Comentarios.resources
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Novo_Comentario.resources
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Comentarios_admin.resources
+C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Devolucoes.resources

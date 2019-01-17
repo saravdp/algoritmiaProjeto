@@ -48,6 +48,7 @@ namespace Login
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.devoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,13 +61,15 @@ namespace Login
             this.consultasToolStripMenuItem,
             this.comentáriosToolStripMenuItem,
             this.gestãoDeSalasToolStripMenuItem,
-            this.comentáriosAdminToolStripMenuItem});
+            this.comentáriosAdminToolStripMenuItem,
+            this.devoluçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(635, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(723, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // listaEquipamentosToolStripMenuItem
             // 
@@ -140,28 +143,27 @@ namespace Login
             // 
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(176, 311);
+            this.groupBox1.Size = new System.Drawing.Size(196, 311);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorias";
-           // this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(188, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(243, 43);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 319);
+            this.dataGridView1.Size = new System.Drawing.Size(452, 311);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(499, 370);
+            this.button1.Location = new System.Drawing.Point(532, 370);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 41);
@@ -173,7 +175,7 @@ namespace Login
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(280, 387);
+            this.label1.Location = new System.Drawing.Point(300, 380);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 4;
@@ -182,7 +184,7 @@ namespace Login
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(323, 384);
+            this.comboBox1.Location = new System.Drawing.Point(343, 377);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 5;
@@ -190,20 +192,27 @@ namespace Login
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 377);
+            this.button2.Location = new System.Drawing.Point(12, 370);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 32);
+            this.button2.Size = new System.Drawing.Size(196, 32);
             this.button2.TabIndex = 6;
             this.button2.Text = "Aplicar Filtros";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // devoluçõesToolStripMenuItem
+            // 
+            this.devoluçõesToolStripMenuItem.Name = "devoluçõesToolStripMenuItem";
+            this.devoluçõesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.devoluçõesToolStripMenuItem.Text = "Devoluções";
+            this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
             // 
             // Lista_Equipamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(635, 462);
+            this.ClientSize = new System.Drawing.Size(723, 418);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -241,5 +250,6 @@ namespace Login
         private Label label1;
         private ComboBox comboBox1;
         private Button button2;
+        private ToolStripMenuItem devoluçõesToolStripMenuItem;
     }
 }

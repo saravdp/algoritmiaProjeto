@@ -15,12 +15,14 @@ namespace Login
     {
         public string username;
         public string userType;
+        public string selected;
         public Comentarios_admin()
         {
             InitializeComponent();
             getUsernameAndUserType();
             navBar();
             On_Load();
+            dataGrid_load();
         }
 
         public void getUsernameAndUserType()
@@ -49,7 +51,7 @@ namespace Login
         public void navBar()
         {
             //GESTAO DE PERFIS
-            
+
             if (userType == "admin")
             {
                 consultasToolStripMenuItem.Visible = false;
@@ -66,6 +68,7 @@ namespace Login
 
         private void On_Load()
         {
+            //  groupBox2.Enabled = false;
             //Não permite editar visualmente as DataGrids
             if (userType == "docente")
             {
@@ -73,9 +76,86 @@ namespace Login
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             }
         }
+        private void dataGrid_load()
+        {
+            String line;
+            StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            DataTable dt = new DataTable();
+            int a = 0;
+            char delimiters = ';';
+            string[] parts = line.Split(delimiters);
+            //CABEÇALHO
+            for (int i = 0; i < parts.Length; i++)
+            {
+                dt.Columns.Add(parts[i]);
+            }
+            while (line != null)
+            {
+                parts = line.Split(delimiters);
+                if (a != 0)
+                {
+                    dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+                }
+                line = sr.ReadLine();
+                a++;
+            }
+            //    }
+            this.dataGridView1.DataSource = dt;
+            //dataGridView1.AllowUserToAddRows = false; //do not show the last line    
+            sr.Close();
+        }
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-           
+            string text = radioButton3.Text.ToString();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (this.dataGridView1.SelectedRows.Count == 1)
+                {
+                    // get information of 1st column from the row
+                    string selected = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                }
+            }
+            if (selected != "")
+            {
+                if (radioButton1.Checked == true)
+                {
+                    string value = dataGridView1.SelectedRows[Convert.ToInt16(selected)].Cells[0].Value.ToString();
+                    //procura id no ficheiro de texto
+                    String line;
+                    StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
+                    //Read the first line of text
+                    line = sr.ReadLine();
+                    string[] parts = line.Split(';');
+                    int cont = 0;
+                    int linha = -1;
+                    string linhaAntiga = "";
+                    string linhaSaved = "";
+                    while (line != null)
+                    {
+                        parts = line.Split(';');
+                        if (parts[0] == value)
+                        {
+                            linha = cont;
+                            linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" + parts[3] + ";1;" + text;
+                            linhaAntiga = line;
+                        }
+                        line = sr.ReadLine();
+                        cont++;
+                    }
+                    sr.Close();
+                    string[] lines1 = File.ReadAllLines("Ficheiros de Texto/comentarios.txt");
+                    lines1[linha] = linhaSaved;
+                    File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
+                    MessageBox.Show("Estado Alterado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("É obrigatório escolher uma linha!");
+            }
+
         }
 
         private void listaEquipamentosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,7 +192,7 @@ namespace Login
 
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void salasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,6 +213,114 @@ namespace Login
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            string text = radioButton1.Text.ToString();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (this.dataGridView1.SelectedRows.Count == 1)
+                {
+                    // get information of 1st column from the row
+                    string selected = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                }
+            }
+            if (selected != "")
+            {
+                if (radioButton1.Checked == true)
+                {
+                    string value = dataGridView1.SelectedRows[Convert.ToInt16(selected)].Cells[0].Value.ToString();
+                    //procura id no ficheiro de texto
+                    String line;
+                    StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
+                    //Read the first line of text
+                    line = sr.ReadLine();
+                    string[] parts = line.Split(';');
+                    int cont = 0;
+                    int linha = -1;
+                    string linhaAntiga = "";
+                    string linhaSaved = "";
+                    while (line != null)
+                    {
+                        parts = line.Split(';');
+                        if (parts[0] == value)
+                        {
+                            linha = cont;
+                            linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" + parts[3] + ";1;" + text;
+                            linhaAntiga = line;
+                        }
+                        line = sr.ReadLine();
+                        cont++;
+                    }
+                    sr.Close();
+                    string[] lines1 = File.ReadAllLines("Ficheiros de Texto/comentarios.txt");
+                    lines1[linha] = linhaSaved;
+                    File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
+                    MessageBox.Show("Estado Alterado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("É obrigatório escolher uma linha!");
+            }
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            string text = radioButton2.Text.ToString();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (this.dataGridView1.SelectedRows.Count == 1)
+                {
+                    // get information of 1st column from the row
+                    string selected = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                }
+            }
+            if (selected != "")
+            {
+                if (radioButton1.Checked == true)
+                {
+                    string value = dataGridView1.SelectedRows[Convert.ToInt16(selected)].Cells[0].Value.ToString();
+                    //procura id no ficheiro de texto
+                    String line;
+                    StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
+                    //Read the first line of text
+                    line = sr.ReadLine();
+                    string[] parts = line.Split(';');
+                    int cont = 0;
+                    int linha = -1;
+                    string linhaAntiga = "";
+                    string linhaSaved = "";
+                    while (line != null)
+                    {
+                        parts = line.Split(';');
+                        if (parts[0] == value)
+                        {
+                            linha = cont;
+                            linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" + parts[3] + ";1;" + text;
+                            linhaAntiga = line;
+                        }
+                        line = sr.ReadLine();
+                        cont++;
+                    }
+                    sr.Close();
+                    string[] lines1 = File.ReadAllLines("Ficheiros de Texto/comentarios.txt");
+                    lines1[linha] = linhaSaved;
+                    File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
+                    MessageBox.Show("Estado Alterado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("É obrigatório escolher uma linha!");
+            }
 
         }
     }

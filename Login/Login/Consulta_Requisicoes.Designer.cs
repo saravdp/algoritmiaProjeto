@@ -29,7 +29,6 @@ namespace Login
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -44,20 +43,17 @@ namespace Login
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Tipo_objeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Requisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Devolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.listaEquipamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -66,34 +62,21 @@ namespace Login
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(24, 37);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(167, 106);
+            this.groupBox1.Size = new System.Drawing.Size(167, 86);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Por tipo";
             // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-
-            this.radioButton3.Location = new System.Drawing.Point(25, 87);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(196, 21);
-            this.radioButton3.TabIndex = 4;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Requisições e Devoluções";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(19, 49);
+            this.radioButton2.Location = new System.Drawing.Point(9, 55);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(82, 17);
@@ -105,10 +88,9 @@ namespace Login
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-
-            this.radioButton1.Location = new System.Drawing.Point(25, 33);
+            this.radioButton1.Location = new System.Drawing.Point(9, 33);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(106, 21);
+            this.radioButton1.Size = new System.Drawing.Size(83, 17);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Requisições";
@@ -116,6 +98,7 @@ namespace Login
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.label4);
@@ -126,11 +109,11 @@ namespace Login
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Location = new System.Drawing.Point(24, 167);
+            this.groupBox2.Location = new System.Drawing.Point(24, 127);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(167, 262);
+            this.groupBox2.Size = new System.Drawing.Size(167, 323);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
@@ -138,26 +121,24 @@ namespace Login
             // label5
             // 
             this.label5.AutoSize = true;
-
-            this.label5.Location = new System.Drawing.Point(6, 258);
+            this.label5.Location = new System.Drawing.Point(6, 228);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Docente";
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-
-            this.comboBox3.Location = new System.Drawing.Point(9, 278);
+            this.comboBox3.Location = new System.Drawing.Point(9, 244);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(200, 24);
+            this.comboBox3.Size = new System.Drawing.Size(149, 21);
             this.comboBox3.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 162);
+            this.label4.Location = new System.Drawing.Point(6, 179);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
@@ -168,74 +149,66 @@ namespace Login
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(7, 178);
+            this.comboBox2.Location = new System.Drawing.Point(9, 145);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 21);
+            this.comboBox2.Size = new System.Drawing.Size(149, 21);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-
-            this.label3.Location = new System.Drawing.Point(6, 162);
+            this.label3.Location = new System.Drawing.Point(6, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 17);
+            this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Sala";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-
-            this.label2.Location = new System.Drawing.Point(6, 91);
+            this.label2.Location = new System.Drawing.Point(6, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 17);
+            this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Até";
+            this.label2.Text = "Data de Devolução";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Desde";
+            this.label1.Text = "Data de Requisição";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(48, 159);
+            this.comboBox1.Location = new System.Drawing.Point(9, 195);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 24);
+            this.comboBox1.Size = new System.Drawing.Size(149, 21);
             this.comboBox1.TabIndex = 2;
             // 
             // dateTimePicker2
             // 
-
-            this.dateTimePicker2.Location = new System.Drawing.Point(9, 111);
+            this.dateTimePicker2.Location = new System.Drawing.Point(9, 97);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(149, 20);
             this.dateTimePicker2.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
-
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 55);
+            this.dateTimePicker1.Location = new System.Drawing.Point(9, 41);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(149, 20);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tipo_objeto,
-            this.Nome,
-            this.Data_Requisicao,
-            this.Data_Devolucao});
             this.dataGridView1.Location = new System.Drawing.Point(200, 37);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -243,33 +216,6 @@ namespace Login
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(428, 392);
             this.dataGridView1.TabIndex = 6;
-//            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Tipo_objeto
-            // 
-            this.Tipo_objeto.HeaderText = "Tipo de Objeto";
-            this.Tipo_objeto.Name = "Tipo_objeto";
-            this.Tipo_objeto.ReadOnly = true;
-            this.Tipo_objeto.Width = 75;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 245;
-            // 
-            // Data_Requisicao
-            // 
-            this.Data_Requisicao.HeaderText = "Data Requisição";
-            this.Data_Requisicao.Name = "Data_Requisicao";
-            this.Data_Requisicao.ReadOnly = true;
-            // 
-            // Data_Devolucao
-            // 
-            this.Data_Devolucao.HeaderText = "Data Devolução";
-            this.Data_Devolucao.Name = "Data_Devolucao";
-            this.Data_Devolucao.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -283,7 +229,7 @@ namespace Login
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(636, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(656, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -310,6 +256,20 @@ namespace Login
             this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.comentáriosToolStripMenuItem.Text = "Comentários";
             // 
+            // inserirNovoToolStripMenuItem
+            // 
+            this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
+            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.inserirNovoToolStripMenuItem.Text = "Inserir Novo";
+            this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
+            // 
+            // históricoToolStripMenuItem
+            // 
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
+            // 
             // gestãoDeSalasToolStripMenuItem
             // 
             this.gestãoDeSalasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -322,45 +282,39 @@ namespace Login
             // salasToolStripMenuItem
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // comentáriosAdminToolStripMenuItem
             // 
             this.comentáriosAdminToolStripMenuItem.Name = "comentáriosAdminToolStripMenuItem";
-            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.comentáriosAdminToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
             this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
             // 
-            // inserirNovoToolStripMenuItem
+            // button1
             // 
-            this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
-            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.inserirNovoToolStripMenuItem.Text = "Inserir Novo";
-            this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
-            // 
-            // históricoToolStripMenuItem
-            // 
-            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.históricoToolStripMenuItem.Text = "Histórico";
-            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(9, 279);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(149, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Aplicar Filtros";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Consulta_Requisicoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(636, 454);
+            this.ClientSize = new System.Drawing.Size(656, 461);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
@@ -383,7 +337,6 @@ namespace Login
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -398,10 +351,6 @@ namespace Login
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_objeto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Requisicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Devolucao;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem listaEquipamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
@@ -412,5 +361,6 @@ namespace Login
         private System.Windows.Forms.ToolStripMenuItem inserirNovoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comentáriosAdminToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

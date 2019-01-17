@@ -21,7 +21,7 @@ namespace Login
             getUsernameAndUserType();
             navBar();
             On_Load();
-
+            LoadDataGrid();
         }
 
         public void getUsernameAndUserType()
@@ -55,7 +55,7 @@ namespace Login
                 comentáriosAdminToolStripMenuItem.Visible = false;
                 gestãoDeSalasToolStripMenuItem.Visible = false;
             }
-            
+
         }
 
         private void On_Load()
@@ -89,7 +89,7 @@ namespace Login
 
         private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void inserirNovoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,6 +130,76 @@ namespace Login
             Form gestao_categorias = new Gestao_Categorias();
             gestao_categorias.Closed += (s, args) => this.Close();
             gestao_categorias.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void LoadDataGrid()
+        {
+            DataTable dt = new DataTable();
+            int cont = 0;
+            //Foreach file in directory 
+            string[] fileEntries = Directory.GetFiles("Ficheiros de Texto/Requisicoes");
+            foreach (string fileName in fileEntries)
+            {
+                String line;
+            StreamReader sr = new StreamReader(fileName);
+            //Read the first line of text
+            line = sr.ReadLine();
+            int a = 0;
+            char delimiters = ';';
+            string[] parts = line.Split(delimiters);
+                //CABEÇALHO
+                if (cont == 0)
+                {
+                    if (userType == "admin"||userType== "seguranca")
+                    {
+                        for (int i = 0; i < parts.Length; i++)
+                        {
+
+                            dt.Columns.Add(parts[i]);
+
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 2; i < parts.Length; i++)
+                        {
+
+                            dt.Columns.Add(parts[i]);
+
+                        }
+                    }
+                    cont++;
+                }
+            while (line != null)
+            {
+                parts = line.Split(delimiters);
+                if (a != 0)
+                {
+                       
+                            if (userType == "admin" || userType == "seguranca")
+                            {
+                                dt.Rows.Add(parts[0],parts[1],parts[2], parts[3], parts[4], parts[5], parts[6]);
+                            }
+                            else
+                            {
+                                if (parts[1] == username)
+                                {
+                                    dt.Rows.Add(parts[2], parts[3], parts[4], parts[5], parts[6]);
+                                }
+                            }
+                        
+                }
+                line = sr.ReadLine();
+                a++;
+            }
+            //    }
+            this.dataGridView1.DataSource = dt;
+            sr.Close();
+        }
         }
     }
 }
