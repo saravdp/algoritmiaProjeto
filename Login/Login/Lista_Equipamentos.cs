@@ -20,6 +20,7 @@ namespace Login
 
         public Lista_Equipamentos()
         {
+          
             InitializeComponent();
             getUsernameAndUserType();
             On_Load();
@@ -223,6 +224,7 @@ namespace Login
             DateTime dataReq = DateTime.Now;
             string nameFile = "Ficheiros de Texto/Requisicoes/R_" + dataReq.ToString("ddMMyy");
             string[] parts;
+            string idEquipamento = "";
             int id=0;//= Convert.ToInt16(parts[0]);
             if (comboBox1.Text != "")
             {//Cria ficheiro de texto para o dia se nao existir e escreve o user, data,hora,sala,tipo_objeto 
@@ -239,51 +241,90 @@ namespace Login
                         // get information of 1st column from the row
                         string selected = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                         categoria = selected;
+                        idEquipamento= this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                       
                     }
                 }
-                if (File.Exists(nameFile))
-                {
-                    var lastLine = File.ReadLines(nameFile).Last();
-                    parts = lastLine.Split(';');
-                    id = Convert.ToInt16(parts[0])+1;
-                    sw = File.AppendText(nameFile);
-                }
-                else
-                {
-                    sw = File.CreateText(nameFile);
-                }
-                string user = sr.ReadLine();
-                sr.Close();
-                string data = dataReq.ToString("dd-MM-yyyy"); ;
-                string hora = String.Format("{0:t}", dataReq).ToString();
-                string sala = comboBox1.Text;
-                string line;
-                string cat = "";
-                
-
-                StreamReader file = new StreamReader("Ficheiros de texto/categorias.txt");
-                while ((line = file.ReadLine()) != null)
-                {
-                     parts = line.Split(';');
-
-
-                    if (parts[1] == categoria)
+                if (this.dataGridView1.SelectedRows[0].Cells[4].Value.ToString()=="disponivel"&& this.dataGridView1.SelectedRows[0].Cells[3].Value.ToString()!="0") {
+                    if (File.Exists(nameFile))
                     {
+                        var lastLine = File.ReadLines(nameFile).Last();
+                        parts = lastLine.Split(';');
+                        id = Convert.ToInt16(parts[0]) + 1;
+                        sw = File.AppendText(nameFile);
+                    }
+                    else
+                    {
+                        sw = File.CreateText(nameFile);
+                    }
+                    string user = sr.ReadLine();
+                    sr.Close();
+                    string data = dataReq.ToString("dd-MM-yyyy"); ;
+                    string hora = String.Format("{0:t}", dataReq).ToString();
+                    string sala = comboBox1.Text;
+                    string line;
+                    string cat = "";
 
-                        cat = parts[0];
-                        break;
+
+                    StreamReader file = new StreamReader("Ficheiros de texto/categorias.txt");
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        parts = line.Split(';');
+
+
+                        if (parts[1] == categoria)
+                        {
+
+                            cat = parts[0];
+                            break;
+                        }
+
                     }
 
+                    string idObjeto = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    id = id + 1;
+                    // MessageBox.Show("Resumo de requisição:  \n Sala: {0} \n ");
+                    sw.WriteLine("\n" + id + ";" + user + ";" + data + ";" + hora + ";" + sala + ";" + idObjeto + "; ; ");
+                    //BAIXAR STOCK----------------------------------------------------------
+                    string fileName = "Ficheiros de Texto/equipamentos.txt";
+                    StreamReader reader = new StreamReader(fileName);
+                    //Read the first line of text
+                    line = reader.ReadLine();
+                    int a = 0;
+                    char delimiters = ';';
+                    string linhaSaved = "";
+                    int linhaAlterar = -1;
+                    parts = line.Split(delimiters);
+                    while (line != null)
+                    {
+                        parts = line.Split(delimiters);
+                        if (parts[0] == idEquipamento)
+                        {
+                            linhaAlterar = a;
+                            int stock = Convert.ToInt16(parts[3])-1;
+                            linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" +stock.ToString()+";" + parts[4] ;
+                            MessageBox.Show(linhaSaved);
+                        }
+                        line = reader.ReadLine();
+                        a++;
+                    }
+                    reader.Close();
+                    string[] lines1 = File.ReadAllLines(fileName);
+                    lines1[linhaAlterar] = linhaSaved;
+                    File.WriteAllLines(fileName, lines1);
+                    var lines = File.ReadAllLines(fileName).Where(arg => !string.IsNullOrWhiteSpace(arg));
+                    File.WriteAllLines(fileName, lines);
+                    
+
+
+                    MessageBox.Show("Requisitado!");
+                    sw.Close();
+                    this.Hide();
+                    Form lista_Equipamento = new Lista_Equipamentos();
+                    lista_Equipamento.Closed += (s, args) => this.Close();
+                    lista_Equipamento.Show();
                 }
-
-                string tipoObjeto = cat;
-                id = id + 1;
-                // MessageBox.Show("Resumo de requisição:  \n Sala: {0} \n ");
-                sw.WriteLine("\n"+id+";"+user + ";" + data + ";" + hora + ";" + sala + ";" + tipoObjeto+"; ; ");
-                MessageBox.Show("Requisitado!");
-
-                sw.Close();
-
+                else { MessageBox.Show("Equipamento Indisponivel de momento"); }
             }
             else
             {
@@ -402,6 +443,14 @@ namespace Login
             Form devolucoes = new Devolucoes();
             devolucoes.Closed += (s, args) => this.Close();
             devolucoes.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
     }
 }

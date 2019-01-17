@@ -149,6 +149,10 @@ namespace Login
                     lines1[linha] = linhaSaved;
                     File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
                     MessageBox.Show("Estado Alterado!");
+                    this.Hide();
+                    Form comentarios_admin = new Comentarios_admin();
+                    comentarios_admin.Closed += (s, args) => this.Close();
+                    comentarios_admin.Show();
                 }
             }
             else
@@ -263,6 +267,9 @@ namespace Login
                     lines1[linha] = linhaSaved;
                     File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
                     MessageBox.Show("Estado Alterado!");
+                    Form comentarios_admin = new Comentarios_admin();
+                    comentarios_admin.Closed += (s, args) => this.Close();
+                    comentarios_admin.Show();
                 }
             }
             else
@@ -315,6 +322,9 @@ namespace Login
                     lines1[linha] = linhaSaved;
                     File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
                     MessageBox.Show("Estado Alterado!");
+                    Form comentarios_admin = new Comentarios_admin();
+                    comentarios_admin.Closed += (s, args) => this.Close();
+                    comentarios_admin.Show();
                 }
             }
             else
@@ -322,6 +332,14 @@ namespace Login
                 MessageBox.Show("É obrigatório escolher uma linha!");
             }
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
     }
 }

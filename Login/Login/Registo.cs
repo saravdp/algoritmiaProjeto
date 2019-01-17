@@ -58,21 +58,41 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var lastLine = File.ReadLines("Ficheiros de Texto/utilizadores.txt").Last();
-            char[] delimiters = new char[] { ';' };
-            string[] parts = lastLine.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-            int id = Convert.ToInt16(parts[0])+1;
-            string user= textBox1.Text;
-            string email=textBox3.Text;
-            string password=textBox2.Text;
-            StreamWriter sw = File.AppendText("Ficheiros de Texto/utilizadores.txt");
-            sw.Write("\n"+id+";"+user+";"+email+";"+password+";"+"docente");
-            MessageBox.Show("Registo efetuado com sucesso. \n Inicie sessão com a sua conta");
-            sw.Close();
-            this.Hide();
-            Form login = new Login();
-            login.Closed += (s, args) => this.Close();
-            login.Show();
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            string line = sr.ReadLine();
+            int cont = 0;
+            while (line != null) 
+            {
+                string[] parts = line.Split(';');
+                if (parts[1]==textBox1.Text)
+                {
+                    cont++;
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            if (cont == 0)
+            {
+                var lastLine = File.ReadLines("Ficheiros de Texto/utilizadores.txt").Last();
+                char[] delimiters = new char[] { ';' };
+                string[] parts = lastLine.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                int id = Convert.ToInt16(parts[0]) + 1;
+                string user = textBox1.Text;
+                string email = textBox3.Text;
+                string password = textBox2.Text;
+                StreamWriter sw = File.AppendText("Ficheiros de Texto/utilizadores.txt");
+                sw.Write("\n" + id + ";" + user + ";" + email + ";" + password + ";" + "docente");
+                MessageBox.Show("Registo efetuado com sucesso. \n Inicie sessão com a sua conta");
+                sw.Close();
+                this.Hide();
+                Form login = new Login();
+                login.Closed += (s, args) => this.Close();
+                login.Show();
+            }
+            else
+            {
+                MessageBox.Show("O user já existe!!");
+            }
         }
     }
 }

@@ -182,13 +182,13 @@ namespace Login
                        
                             if (userType == "admin" || userType == "seguranca")
                             {
-                                dt.Rows.Add(parts[0],parts[1],parts[2], parts[3], parts[4], parts[5], parts[6]);
+                                dt.Rows.Add(parts[0],parts[1],parts[2], parts[3], parts[4], parts[5], parts[6],parts[7]);
                             }
                             else
                             {
                                 if (parts[1] == username)
                                 {
-                                    dt.Rows.Add(parts[2], parts[3], parts[4], parts[5], parts[6]);
+                                    dt.Rows.Add(parts[2], parts[3], parts[4], parts[5], parts[6],parts[7]);
                                 }
                             }
                         
@@ -200,6 +200,14 @@ namespace Login
             this.dataGridView1.DataSource = dt;
             sr.Close();
         }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
     }
 }

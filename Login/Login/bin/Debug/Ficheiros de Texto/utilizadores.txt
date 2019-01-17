@@ -1,3 +1,4 @@
 0;a;b@b.com;c;docente
 1;b;b@b.pt;c;admin
 2;c;c@c.pt;c;seguranca
+3;d;d@d.com;c;docente

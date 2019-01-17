@@ -119,6 +119,7 @@ namespace Login
             string data=date.ToString("dd-MM-yy");
             string idReq = "";
             int value = 0;
+            string idEquipamento = "";
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (this.dataGridView1.SelectedRows.Count == 1)
@@ -128,6 +129,7 @@ namespace Login
                     lineSelected = selected;
                     date= Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[2].Value);
                     idReq= dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    idEquipamento = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
                 }
             }
             string fileName = "Ficheiros de Texto/Requisicoes/R_" + DateTime.Parse(lineSelected).ToString("ddMMyy");
@@ -163,6 +165,53 @@ namespace Login
             var lines = File.ReadAllLines(fileName).Where(arg => !string.IsNullOrWhiteSpace(arg));
             File.WriteAllLines(fileName, lines);
             MessageBox.Show("Equipamento Devolvido!");
+
+
+            //AUMENTA STOCK----------------------------------------------------------
+             fileName = "Ficheiros de Texto/equipamentos.txt";
+            StreamReader reader = new StreamReader(fileName);
+            //Read the first line of text
+            line = reader.ReadLine();
+            a = 0;
+            delimiters = ';';
+            linhaSaved = "";
+            linhaAlterar = -1;
+            parts = line.Split(delimiters);
+            while (line != null)
+            {
+                parts = line.Split(delimiters);
+                if (parts[0] == idEquipamento)
+                {
+                    linhaAlterar = a;
+                    int stock = Convert.ToInt16(parts[3]) + 1;
+                    linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" + stock.ToString() + ";" + parts[4];
+                    MessageBox.Show(linhaSaved);
+                }
+                line = reader.ReadLine();
+                a++;
+            }
+            reader.Close();
+            string[] lines2 = File.ReadAllLines(fileName);
+            lines2[linhaAlterar] = linhaSaved;
+            //for(int i=0; i < lines2.Length; i++)
+           // {
+           //     MessageBox.Show(lines2[i]);
+          //  }
+            File.WriteAllLines(fileName, lines2);
+             lines = File.ReadAllLines(fileName).Where(arg => !string.IsNullOrWhiteSpace(arg));
+            File.WriteAllLines(fileName, lines);
+            this.Hide();
+            Form devolucoes = new Devolucoes();
+            devolucoes.Closed += (s, args) => this.Close();
+            devolucoes.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
     }
 }

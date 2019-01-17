@@ -210,5 +210,13 @@ namespace Login
             bs.Filter = "[Estado do Comentario] Like '%" + value+ "%'";
             dataGridView1.DataSource = bs;*/
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
     }
 }

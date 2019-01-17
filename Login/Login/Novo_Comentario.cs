@@ -86,7 +86,7 @@ namespace Login
                         if (parts[1] == user)
                         {
                             DateTime a = Convert.ToDateTime(parts[2]);
-                            comboBox1.Items.Add(a.ToString("ddMMyy")  + " às " + parts[3] + " com o id: " + parts[0]);
+                            comboBox1.Items.Add(a.ToString("dd-MM-yy")  + " às " + parts[3] + " com o id: " + parts[0]);
                             idreq = parts[0];
                         }
                         line = sa.ReadLine();
@@ -176,7 +176,7 @@ namespace Login
             string line = comboBox1.Text;
             parts = line.Split(' ');
             idreq =parts[parts.Length-1];
-            string fileName = "R_" + parts[0];
+           // string fileName = "R_" + parts[0];
             StreamWriter sw;
             sw = File.AppendText("Ficheiros de texto/comentarios.txt");
             sw.WriteLine("\n"+idComent + ";" + user + ";" + idreq + ";"+richTextBox1.Text+";0;0");
@@ -188,6 +188,19 @@ namespace Login
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

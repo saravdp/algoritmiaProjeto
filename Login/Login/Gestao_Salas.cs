@@ -157,9 +157,11 @@ namespace Login
                 StreamWriter sw = File.AppendText("Ficheiros de Texto/salas.txt");
                 sw.WriteLine(id + ";" + salaAdded); //Escrever no ficheiro de texto
                 MessageBox.Show("Sala Adicionada!");
-                this.dataGridView1.EndEdit();
-                this.dataGridView1.Refresh();
                 sw.Close();
+                this.Hide();
+                Form gestao_Salas = new Gestao_Salas();
+                gestao_Salas.Closed += (s, args) => this.Close();
+                gestao_Salas.Show();
             }
         }
 
@@ -182,7 +184,9 @@ namespace Login
                     salas = selected;
                 }
             }
-            StreamReader sr = new StreamReader("Ficheiros de texto/salas.txt");
+            if (salas != "")
+            {
+                StreamReader sr = new StreamReader("Ficheiros de texto/salas.txt");
             string line = sr.ReadLine();
             int a = 0;
             int idSala = -1; //valor -1 para ser diferente de 0, pois este ID existe
@@ -202,8 +206,7 @@ namespace Login
 
             int cont = 0;
             int numeroLinha = 0;
-            if (salas != null)
-            {
+          
                 string replace = idSala + ";" + salas; //o que vai procurar no ficheiro de texto para ser substituido por string.Empty
                 StreamReader sa = new StreamReader("Ficheiros de texto/salas.txt");
                 line = sa.ReadLine();
@@ -224,12 +227,23 @@ namespace Login
                 var lines = File.ReadAllLines("Ficheiros de Texto/salas.txt").Where(arg => !string.IsNullOrWhiteSpace(arg));
                 File.WriteAllLines("Ficheiros de Texto/salas.txt", lines);
                 MessageBox.Show("Sala Removida!");
+                this.Hide();
+                Form gestao_Salas = new Gestao_Salas();
+                gestao_Salas.Closed += (s, args) => this.Close();
+                gestao_Salas.Show();
             }
             else
             {
                 MessageBox.Show("Nenhuma linha selecionada!!");
             }
         }
-        
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
     }
 }

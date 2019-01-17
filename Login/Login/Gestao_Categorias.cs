@@ -156,9 +156,11 @@ namespace Login
                 StreamWriter sw = File.AppendText("Ficheiros de Texto/categorias.txt"); 
                 sw.WriteLine(id + ";" + categoriaAdded); //Escrever no ficheiro de texto
                 MessageBox.Show("Categoria Adicionada!");
-                this.dataGridView1.EndEdit();
-                this.dataGridView1.Refresh();
                 sw.Close();
+                this.Hide();
+                Form gestao_Categorias = new Gestao_Categorias();
+                gestao_Categorias.Closed += (s, args) => this.Close();
+                gestao_Categorias.Show();
             }
         }
 
@@ -176,7 +178,9 @@ namespace Login
                     categoria = selected;
                 }
             }
-            StreamReader sr = new StreamReader("Ficheiros de texto/categorias.txt");
+            if (categoria != "")
+            {
+                StreamReader sr = new StreamReader("Ficheiros de texto/categorias.txt");
             string line = sr.ReadLine();
             int a = 0;
             int idCategoria = -1; //valor -1 para ser diferente de 0, pois este ID existe
@@ -196,8 +200,7 @@ namespace Login
 
             int cont = 0;
             int numeroLinha = 0;
-            if (categoria != null)
-            {
+            
                 string replace = idCategoria + ";" + categoria; //o que vai procurar no ficheiro de texto para ser substituido por string.Empty
                 StreamReader sa = new StreamReader("Ficheiros de texto/categorias.txt");
                 line = sa.ReadLine();
@@ -218,12 +221,24 @@ namespace Login
                 var lines = File.ReadAllLines("Ficheiros de Texto/categorias.txt").Where(arg => !string.IsNullOrWhiteSpace(arg));
                 File.WriteAllLines("Ficheiros de Texto/categorias.txt", lines);
                 MessageBox.Show("Categoria Removida!");
+                this.Hide();
+                Form gestao_Categorias = new Gestao_Categorias();
+                gestao_Categorias.Closed += (s, args) => this.Close();
+                gestao_Categorias.Show();
             }
             else
             {
                 MessageBox.Show("Nenhuma linha selecionada!!");
             }
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
     }
 }

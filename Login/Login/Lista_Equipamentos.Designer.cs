@@ -42,13 +42,14 @@ namespace Login
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.devoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -139,6 +140,13 @@ namespace Login
             this.comentáriosAdminToolStripMenuItem.Text = "Comentários (Admin)";
             this.comentáriosAdminToolStripMenuItem.Click += new System.EventHandler(this.comentáriosAdminToolStripMenuItem_Click);
             // 
+            // devoluçõesToolStripMenuItem
+            // 
+            this.devoluçõesToolStripMenuItem.Name = "devoluçõesToolStripMenuItem";
+            this.devoluçõesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.devoluçõesToolStripMenuItem.Text = "Devoluções";
+            this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
@@ -200,12 +208,19 @@ namespace Login
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // devoluçõesToolStripMenuItem
+            // linkLabel1
             // 
-            this.devoluçõesToolStripMenuItem.Name = "devoluçõesToolStripMenuItem";
-            this.devoluçõesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.devoluçõesToolStripMenuItem.Text = "Devoluções";
-            this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(661, 29);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(42, 13);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "LogOut";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Lista_Equipamentos
             // 
@@ -213,6 +228,7 @@ namespace Login
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(723, 418);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -251,5 +267,6 @@ namespace Login
         private ComboBox comboBox1;
         private Button button2;
         private ToolStripMenuItem devoluçõesToolStripMenuItem;
+        private LinkLabel linkLabel1;
     }
 }

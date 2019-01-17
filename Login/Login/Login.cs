@@ -19,12 +19,13 @@ namespace Login
     {
         public string username;
         public string password;
+        public string userType;
         user utilizador = new user();
         public Login()
         {
             InitializeComponent();
         }
-
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -50,16 +51,17 @@ namespace Login
                     if (parts[3] == password)
                     {
                         //se login == successful
-                        this.Hide();
-                        Form home = new Lista_Equipamentos();
-                        home.Closed += (s, args) => this.Close();
-                        home.Show();
+                     
                         utilizador.setNome(username);
-                        MessageBox.Show( "TOKEN \t" + WindowsIdentity.GetCurrent().Token.ToString());
+//                        MessageBox.Show( "TOKEN \t" + WindowsIdentity.GetCurrent().Token.ToString());
                         StreamWriter sw =  File.CreateText("Ficheiros de Texto/userLogged");
                         sw.WriteLine(username);
                         sw.Close();
                        MessageBox.Show("Bem vindo: "+ utilizador.getNome());
+                        this.Hide();
+                        Form home = new Lista_Equipamentos();
+                        home.Closed += (s, args) => this.Close();
+                        home.Show();
                         break;
                     }
                     else
@@ -81,12 +83,42 @@ namespace Login
             //close the file
             sr.Close();
 
-
-
-
-            
+            //NOTIFICACAO INTELIGENTE
+            int cont = 0;
+            //Foreach file in directory 
+            string[] fileEntries = Directory.GetFiles("Ficheiros de Texto/Requisicoes");
+            foreach (string fileName in fileEntries)
+            {
+                StreamReader sa = new StreamReader(fileName);
+                //Read the first line of text
+                line = sa.ReadLine();
+                int a = 0;
+                char delimiters = ';';
+                string[] parts = line.Split(delimiters);
+                while (line != null)
+                {
+                        parts = line.Split(delimiters);
+                    if (parts.Length > 1)
+                    {
+                        if (parts[1] == textBox1.Text)
+                        {
+                            if (parts[6] == " ")
+                            {
+                                cont++;
+                            }
+                        }
+                    }
+                    line = sa.ReadLine();
+                    a++;
+                }
+                sa.Close();  
+            }
+            if (cont >= 1)
+            {
+                MessageBox.Show("Tem " + cont.ToString() + " equipamentos por entregar! Dirija-se ao CPR o mais brevemente possivel", "Alerta",
+                MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
-
         private void label3_Click(object sender, EventArgs e)
         {
 
