@@ -62,7 +62,7 @@ namespace Login
             {
                 dt.Columns.Add(parts[i]);
             }
-            while (line != null)
+            while (line != null && line!="")
             {
                 string estadoResposta = "";
                 string resposta = "";
@@ -93,21 +93,16 @@ namespace Login
                 line = sr.ReadLine();
                 a++;
             }
-
-
             //    }
-
             this.dataGridView1.DataSource = dt;
             //dataGridView1.AllowUserToAddRows = false; //do not show the last line    
             sr.Close();
-
             //Não permite editar visualmente as DataGrids
             if (userType == "docente")
             {
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             }
-            
 
         }
 
@@ -176,39 +171,44 @@ namespace Login
         {//Checkbox filters
             if (radioButton1.Checked == true)
             {
-                String line;
-                StreamReader sr = new StreamReader("Ficheiros de Texto/comentarios.txt");
-                //Read the first line of text
-                line = sr.ReadLine();
-                DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
                 bs.DataSource = dataGridView1.DataSource;
-                int cont = 0;
-                while (line != null)
-                {
-                    string[] parts = line.Split(';');
-                    string value = "0";
-                    MessageBox.Show("");
-                     bs.Filter = "[Estado do Comentario] Like '%"+value+"%'";
 
-                   // bs.Filter = "Estado do Comentario Like value";
-                    dataGridView1.DataSource = bs;
-                    line = sr.ReadLine();
-                    cont++;
+                string filter = "";
+                int tamanho = Convert.ToInt16(filter.Length.ToString());
+                // Check if text fields are not null before adding to filter. 
+
+                if (!string.IsNullOrEmpty(radioButton1.Text))
+                {
+                    filter += dataGridView1.Columns["Estado_do_Comentario"].HeaderText.ToString() + " LIKE '%" + "Respondido" + "%' ";
 
                 }
+                bs.Filter = filter;
+                dataGridView1.DataSource = bs;
             }
+            
 
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-          /*  DataTable dt = new DataTable();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            string value = "0";
-            bs.Filter = "[Estado do Comentario] Like '%" + value+ "%'";
-            dataGridView1.DataSource = bs;*/
+            if (radioButton2.Checked == true)
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dataGridView1.DataSource;
+
+                string filter = "";
+                int tamanho = Convert.ToInt16(filter.Length.ToString());
+                // Check if text fields are not null before adding to filter. 
+
+                if (!string.IsNullOrEmpty(radioButton2.Text))
+                {
+                    filter += dataGridView1.Columns["Estado_do_Comentario"].HeaderText.ToString() + " LIKE '%" + "Por Responder" + "%' ";
+
+                }
+                bs.Filter = filter;
+                dataGridView1.DataSource = bs;
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -217,6 +217,22 @@ namespace Login
             Form login = new Login();
             login.Closed += (s, args) => this.Close();
             login.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form historico_comentarios = new Historico_Comentarios();
+            historico_comentarios.Closed += (s, args) => this.Close();
+            historico_comentarios.Show();
+        }
+
+        private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form devolucoes = new Devolucoes();
+            devolucoes.Closed += (s, args) => this.Close();
+            devolucoes.Show();
         }
     }
 }

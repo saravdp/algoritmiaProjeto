@@ -94,9 +94,24 @@ namespace Login
             while (line != null)
             {
                 parts = line.Split(delimiters);
+                MessageBox.Show(line);
                 if (a != 0)
                 {
-                    dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+                    string estadoResposta = "";
+                    string resposta = parts[5];
+                    if (parts[4] == "1")
+                    {
+                        estadoResposta = "Respondido";
+                    }
+                    else if (parts[4] == "0")
+                    {
+                        estadoResposta = "Por Responder";
+                    }
+                    if (parts[5] == "0")
+                    {
+                        resposta = "";
+                    }
+                    dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], estadoResposta, resposta);
                 }
                 line = sr.ReadLine();
                 a++;
@@ -119,7 +134,7 @@ namespace Login
             }
             if (selected != "")
             {
-                if (radioButton1.Checked == true)
+                if (radioButton3.Checked == true)
                 {
                     string value = dataGridView1.SelectedRows[Convert.ToInt16(selected)].Cells[0].Value.ToString();
                     //procura id no ficheiro de texto
@@ -221,7 +236,23 @@ namespace Login
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
+            if (radioButton4.Checked == true)
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dataGridView1.DataSource;
 
+                string filter = "";
+                int tamanho = Convert.ToInt16(filter.Length.ToString());
+                // Check if text fields are not null before adding to filter. 
+
+                if (!string.IsNullOrEmpty(radioButton4.Text))
+                {
+                    filter += dataGridView1.Columns["Estado_do_Comentario"].HeaderText.ToString() + " LIKE '%" + "Respondido" + "%' ";
+
+                }
+                bs.Filter = filter;
+                dataGridView1.DataSource = bs;
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -267,6 +298,7 @@ namespace Login
                     lines1[linha] = linhaSaved;
                     File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
                     MessageBox.Show("Estado Alterado!");
+                    this.Hide();
                     Form comentarios_admin = new Comentarios_admin();
                     comentarios_admin.Closed += (s, args) => this.Close();
                     comentarios_admin.Show();
@@ -292,7 +324,7 @@ namespace Login
             }
             if (selected != "")
             {
-                if (radioButton1.Checked == true)
+                if (radioButton2.Checked == true)
                 {
                     string value = dataGridView1.SelectedRows[Convert.ToInt16(selected)].Cells[0].Value.ToString();
                     //procura id no ficheiro de texto
@@ -322,6 +354,7 @@ namespace Login
                     lines1[linha] = linhaSaved;
                     File.WriteAllLines("Ficheiros de Texto/comentarios.txt", lines1);
                     MessageBox.Show("Estado Alterado!");
+                    this.Hide();
                     Form comentarios_admin = new Comentarios_admin();
                     comentarios_admin.Closed += (s, args) => this.Close();
                     comentarios_admin.Show();
@@ -340,6 +373,43 @@ namespace Login
             Form login = new Login();
             login.Closed += (s, args) => this.Close();
             login.Show();
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked == true)
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dataGridView1.DataSource;
+
+                string filter = "";
+                int tamanho = Convert.ToInt16(filter.Length.ToString());
+                // Check if text fields are not null before adding to filter. 
+
+                if (!string.IsNullOrEmpty(radioButton5.Text))
+                {
+                    filter += dataGridView1.Columns["Estado_do_Comentario"].HeaderText.ToString() + " LIKE '%" + "Por Responder" + "%' ";
+
+                }
+                bs.Filter = filter;
+                dataGridView1.DataSource = bs;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form comentarios_admin = new Comentarios_admin();
+            comentarios_admin.Closed += (s, args) => this.Close();
+            comentarios_admin.Show();
+        }
+
+        private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form devolucoes = new Devolucoes();
+            devolucoes.Closed += (s, args) => this.Close();
+            devolucoes.Show();
         }
     }
 }

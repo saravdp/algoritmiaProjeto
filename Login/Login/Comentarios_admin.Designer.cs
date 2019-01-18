@@ -39,6 +39,7 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -47,6 +48,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.Login = new System.Windows.Forms.LinkLabel();
+            this.devoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,11 +63,12 @@
             this.consultasToolStripMenuItem,
             this.comentáriosToolStripMenuItem,
             this.gestãoDeSalasToolStripMenuItem,
-            this.comentáriosAdminToolStripMenuItem});
+            this.comentáriosAdminToolStripMenuItem,
+            this.devoluçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(646, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(770, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -138,16 +141,27 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Location = new System.Drawing.Point(9, 42);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(122, 81);
+            this.groupBox1.Size = new System.Drawing.Size(122, 104);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(17, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Remover Filtros";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // radioButton5
             // 
@@ -156,9 +170,9 @@
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(96, 17);
             this.radioButton5.TabIndex = 3;
-            this.radioButton5.TabStop = true;
             this.radioButton5.Text = "Por Responder";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -167,7 +181,6 @@
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(82, 17);
             this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Respondido";
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
@@ -250,12 +263,19 @@
             this.Login.VisitedLinkColor = System.Drawing.Color.White;
             this.Login.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // devoluçõesToolStripMenuItem
+            // 
+            this.devoluçõesToolStripMenuItem.Name = "devoluçõesToolStripMenuItem";
+            this.devoluçõesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.devoluçõesToolStripMenuItem.Text = "Devoluções";
+            this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
+            // 
             // Comentarios_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(646, 442);
+            this.ClientSize = new System.Drawing.Size(770, 442);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
@@ -297,5 +317,7 @@
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.LinkLabel Login;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem devoluçõesToolStripMenuItem;
     }
 }

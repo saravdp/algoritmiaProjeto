@@ -204,5 +204,13 @@ namespace Login
         {
 
         }
+
+        private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form devolucoes = new Devolucoes();
+            devolucoes.Closed += (s, args) => this.Close();
+            devolucoes.Show();
+        }
     }
 }

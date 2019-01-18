@@ -20,7 +20,7 @@ namespace Login
 
         public Lista_Equipamentos()
         {
-          
+
             InitializeComponent();
             getUsernameAndUserType();
             On_Load();
@@ -69,9 +69,9 @@ namespace Login
                 }
                 if (cont != 1)
                 {
-                     string[] parts = line.Split(';');
-                     comboBox1.Items.Add(parts[1]);
-                    
+                    string[] parts = line.Split(';');
+                    comboBox1.Items.Add(parts[1]);
+
                 }
 
                 cont++;
@@ -110,18 +110,12 @@ namespace Login
         }
 
 
-       
-        private void CreateOrAppendToFilter(CheckBox cb, ref string RowFilter)
-        {
-            if (RowFilter.Length > 0)
-            {
-                RowFilter += " OR ";
-            }
-            RowFilter += (cb.Checked) ? string.Format("[AreaCode] = {0}", cb.Text.Trim()) : string.Empty;
-        }
+
+
         private void Categorias_list()
         {
             int a = 0;
+            int cont = 0;
             String line;
             StreamReader sr = new StreamReader("Ficheiros de Texto/categorias.txt");
             //Read the first line of text
@@ -129,17 +123,20 @@ namespace Login
             groupBox1.Enabled = true;
             while (line != null)
             {
-                char delimiters = ';';
-                string[] parts = line.Split(delimiters);
-                box[a] = new CheckBox();
-                box[a].Tag = parts[1].ToString();
-                box[a].Text = parts[1];
-                box[a].TabIndex = a;
-                box[a].AutoSize = true;
-                box[a].Location = new Point(10, 20 + a * 20);
-                groupBox1.Controls.Add(box[a]);
+                if (cont != 0)
+                {
+                    string[] parts = line.Split(';');
+                    box[a] = new CheckBox();
+                    box[a].Tag = parts[1].ToString();
+                    box[a].Text = parts[1];
+                    box[a].TabIndex = a;
+                    box[a].AutoSize = true;
+                    box[a].Location = new Point(10, 20 + a * 20);
+                    groupBox1.Controls.Add(box[a]);
+                    a++;
+                }
                 line = sr.ReadLine();
-                a++;
+                cont++;
             }
             sr.Close();
 
@@ -225,7 +222,7 @@ namespace Login
             string nameFile = "Ficheiros de Texto/Requisicoes/R_" + dataReq.ToString("ddMMyy");
             string[] parts;
             string idEquipamento = "";
-            int id=0;//= Convert.ToInt16(parts[0]);
+            int id = 0;//= Convert.ToInt16(parts[0]);
             if (comboBox1.Text != "")
             {//Cria ficheiro de texto para o dia se nao existir e escreve o user, data,hora,sala,tipo_objeto 
                 StreamWriter sw;
@@ -241,11 +238,12 @@ namespace Login
                         // get information of 1st column from the row
                         string selected = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                         categoria = selected;
-                        idEquipamento= this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                       
+                        idEquipamento = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
                     }
                 }
-                if (this.dataGridView1.SelectedRows[0].Cells[4].Value.ToString()=="disponivel"&& this.dataGridView1.SelectedRows[0].Cells[3].Value.ToString()!="0") {
+                if (this.dataGridView1.SelectedRows[0].Cells[4].Value.ToString() == "disponivel" && this.dataGridView1.SelectedRows[0].Cells[3].Value.ToString() != "0")
+                {
                     if (File.Exists(nameFile))
                     {
                         var lastLine = File.ReadLines(nameFile).Last();
@@ -301,8 +299,8 @@ namespace Login
                         if (parts[0] == idEquipamento)
                         {
                             linhaAlterar = a;
-                            int stock = Convert.ToInt16(parts[3])-1;
-                            linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" +stock.ToString()+";" + parts[4] ;
+                            int stock = Convert.ToInt16(parts[3]) - 1;
+                            linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" + stock.ToString() + ";" + parts[4];
                             MessageBox.Show(linhaSaved);
                         }
                         line = reader.ReadLine();
@@ -314,7 +312,7 @@ namespace Login
                     File.WriteAllLines(fileName, lines1);
                     var lines = File.ReadAllLines(fileName).Where(arg => !string.IsNullOrWhiteSpace(arg));
                     File.WriteAllLines(fileName, lines);
-                    
+
 
 
                     MessageBox.Show("Requisitado!");
@@ -397,8 +395,8 @@ namespace Login
                 //MessageBox.Show(box[a].CheckState.ToString());
                 a++;
             }
-
-
+            string filtro = "";
+            
             String line;
             StreamReader sr = new StreamReader("Ficheiros de Texto/equipamentos.txt");
             //Read the first line of text
@@ -408,28 +406,59 @@ namespace Login
             DataTable dt = new DataTable();
             BindingSource bs = new BindingSource();
             bs.DataSource = dataGridView1.DataSource;
-
-            while (line != null)
-            {
-                string[] parts = line.Split(';');
-                if (a != 0)
+            string[] parts = line.Split(';');
+            
+                while (cats[cont] != null)//Compara cada linha com o array das categorias selecionadas
                 {
+                // filtro += "[Categoria] Like '%" + cats[cont] + "%' ";
+                filtro += dataGridView1.Columns["Categoria"].HeaderText.ToString() + " LIKE '%" + cats[cont] + "%' ";
 
-                    while (cats[cont] != null)//Compara cada linha com o array das categorias selecionadas
+                cont++;
+                }
+            MessageBox.Show(filtro + " FILTRO");
+            bs.Filter = filtro;
+            dataGridView1.DataSource = bs;
+
+
+            /*   //Inserir dentro do array das checkboxes
+            
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            string filter = "";
+            int tamanho = Convert.ToInt16(filter.Length.ToString());
+            // Check if text fields are not null before adding to filter. 
+            for (int j = 0; j < box.Length; j++)
+            {
+                if (box[j].Checked == true)
+                {
+                    for (int q = 0; q < cats.Length; q++)
                     {
-                        if (parts[2] == cats[cont])
+                        if (q == 0)
                         {
-                            bs.Filter = "[Categoria] Like '%" + cats[cont] + "%'";//Só permite uma categoria
-                            dataGridView1.DataSource = bs;
+                            if (!string.IsNullOrEmpty(cats[i]))
+                            {
+                                filter += dataGridView1.Columns["Sala"].HeaderText.ToString() + " LIKE '%" + cats[q] + "%' ";
+                            }
                         }
-                        cont++;
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(cats[q]))
+                            {
+                                //if (cats[i] == true)
+                                // {
+                                tamanho = Convert.ToInt16(filter.Length.ToString());
+                                if (cats.Length > 0) filter += "OR ";
+
+                                filter += dataGridView1.Columns["Dia_de_requisicao"].HeaderText.ToString() + " LIKE '%" + cats[q] + "%' ";
+                                //  }
+                            }
+                        }
                     }
                 }
-                line = sr.ReadLine();
-                a++;
-                counter++;
-                cont = 0;
             }
+            bs.Filter = filter;
+            dataGridView1.DataSource = bs;*/
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
