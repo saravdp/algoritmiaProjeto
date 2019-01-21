@@ -155,7 +155,7 @@ namespace Login
             string[] parts = line.Split(delimiters);
             //CABEÇALHO
            
-                for (int i = 1; i < parts.Length; i++)
+                for (int i = 0; i < parts.Length; i++)
                 {
                     dt.Columns.Add(parts[i]);
                 }
@@ -167,7 +167,7 @@ namespace Login
                 if (a != 0)
                 {
                    
-                        dt.Rows.Add( parts[1], parts[2], parts[3], parts[4]);             
+                        dt.Rows.Add( parts[0], parts[1], parts[2], parts[3], parts[4]);             
                       
                 }
                 line = sr.ReadLine();
@@ -308,7 +308,6 @@ namespace Login
                             linhaAlterar = a;
                             int stock = Convert.ToInt16(parts[3]) - 1;
                             linhaSaved = parts[0] + ";" + parts[1] + ";" + parts[2] + ";" + stock.ToString() + ";" + parts[4];
-                            MessageBox.Show(linhaSaved);
                         }
                         line = reader.ReadLine();
                         a++;

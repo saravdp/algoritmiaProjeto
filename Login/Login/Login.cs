@@ -94,10 +94,9 @@ namespace Login
                 line = sa.ReadLine();
                 int a = 0;
                 char delimiters = ';';
-                string[] parts = line.Split(delimiters);
                 while (line != null)
                 {
-                        parts = line.Split(delimiters);
+                    string[] parts = line.Split(delimiters);
                     if (parts.Length > 1)
                     {
                         if (parts[1] == textBox1.Text)

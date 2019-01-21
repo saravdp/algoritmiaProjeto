@@ -7,4 +7,3 @@ ID;Categoria
 06;Computadores
 07;Greenscreens
 08;Arduinos
-9;Arduinos

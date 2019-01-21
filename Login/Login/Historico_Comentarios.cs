@@ -84,8 +84,8 @@ namespace Login
                     else
                     {
                         resposta = parts[5];
-                    } 
-
+                    }
+                    
                     if (username==parts[1]) {
                         dt.Rows.Add(parts[2], parts[3], estadoResposta, resposta);
                     }

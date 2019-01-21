@@ -39,6 +39,7 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.criarNovoUtilizadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,7 +49,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.criarNovoUtilizadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,14 +97,14 @@
             // inserirNovoToolStripMenuItem
             // 
             this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
-            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.inserirNovoToolStripMenuItem.Text = "Inserir Novo";
             this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
             // 
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
@@ -119,14 +120,14 @@
             // salasToolStripMenuItem
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
@@ -143,6 +144,12 @@
             this.devoluçõesToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.devoluçõesToolStripMenuItem.Text = "Devoluções";
             this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
+            // 
+            // criarNovoUtilizadorToolStripMenuItem
+            // 
+            this.criarNovoUtilizadorToolStripMenuItem.Name = "criarNovoUtilizadorToolStripMenuItem";
+            this.criarNovoUtilizadorToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.criarNovoUtilizadorToolStripMenuItem.Text = "Criar Novo Utilizador";
             // 
             // comboBox1
             // 
@@ -224,11 +231,22 @@
             this.button1.Text = "Criar Novo Utilizador";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // criarNovoUtilizadorToolStripMenuItem
+            // linkLabel1
             // 
-            this.criarNovoUtilizadorToolStripMenuItem.Name = "criarNovoUtilizadorToolStripMenuItem";
-            this.criarNovoUtilizadorToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
-            this.criarNovoUtilizadorToolStripMenuItem.Text = "Criar Novo Utilizador";
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(1175, 3);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(74, 25);
+            this.linkLabel1.TabIndex = 18;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "LogOut";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Criar_novo_utilizador
             // 
@@ -236,6 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1262, 753);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -278,5 +297,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem criarNovoUtilizadorToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

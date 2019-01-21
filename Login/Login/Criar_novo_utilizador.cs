@@ -131,5 +131,13 @@ namespace Login
             devolucoes.Closed += (s, args) => this.Close();
             devolucoes.Show();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
     }
 }
