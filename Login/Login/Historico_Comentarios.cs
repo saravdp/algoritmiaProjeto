@@ -47,6 +47,9 @@ namespace Login
         }
         private void On_Load()
         {
+            //Não permite editar visualmente as DataGrids
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             //TO DO
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 

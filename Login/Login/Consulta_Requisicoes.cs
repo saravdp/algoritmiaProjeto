@@ -68,7 +68,6 @@ namespace Login
             else if (userType == "seguranca")
             {
                 comentáriosToolStripMenuItem.Visible = false;
-                gestãoDeSalasToolStripMenuItem.Visible = false;
                 criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
 
@@ -77,10 +76,11 @@ namespace Login
         private void On_Load()
         {
             //Não permite editar visualmente as DataGrids
+            //Não permite editar visualmente as DataGrids
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             if (userType == "docente")
             {
-                dataGridView1.AllowUserToAddRows = false;
-                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
                 comboBox3.Hide();
                 label5.Hide();
             }

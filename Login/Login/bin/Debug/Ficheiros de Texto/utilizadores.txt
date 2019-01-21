@@ -3,3 +3,5 @@
 2;c;c@c.pt;c;seguranca
 3;d;d@d.com;c;docente
 4;aaaa;2;asdasd;docente
+5;seguranca;seguranca@seguranca.com;seguranca;seguranca
+6;docente;docente@docente.com;docente;docente

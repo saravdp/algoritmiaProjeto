@@ -60,7 +60,6 @@ namespace Login
             else if (userType == "seguranca")
             {
                 comentáriosToolStripMenuItem.Visible = false;
-                gestãoDeSalasToolStripMenuItem.Visible = false;
                 criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
         }
@@ -86,14 +85,14 @@ namespace Login
 
             if (userType == "admin" || userType == "seguranca")
             {
-                for (int i = 1; i < parts.Length; i++)
+                for (int i = 0; i < parts.Length; i++)
                 {
                     dt.Columns.Add(parts[i]);
                 }
             }
             if ( userType == "docente")
             {
-                for (int i = 2; i < parts.Length; i++)
+                for (int i = 1; i < parts.Length; i++)
                 {
                     dt.Columns.Add(parts[i]);
                 }
@@ -119,7 +118,7 @@ namespace Login
                     }
                     if (userType == "admin" || userType == "seguranca")
                     {
-                        dt.Rows.Add(parts[1], parts[2], parts[3], estadoResposta, resposta);
+                        dt.Rows.Add(parts[0],parts[1], parts[2], parts[3], estadoResposta, resposta);
                     }
                     else
                     {

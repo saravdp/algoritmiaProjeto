@@ -87,6 +87,11 @@ namespace Login
                 comentáriosToolStripMenuItem.Visible = false;
                 devoluçõesToolStripMenuItem.Visible = false;
             }
+            if (userType == "seguranca")
+            {
+                comentáriosToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
+            }
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)

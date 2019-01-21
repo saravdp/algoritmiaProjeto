@@ -139,5 +139,48 @@ namespace Login
             login.Closed += (s, args) => this.Close();
             login.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader("Ficheiros de Texto/utilizadores.txt");
+            string line = sr.ReadLine();
+            int cont = 0;
+            while (line != null)
+            {
+                string[] parts = line.Split(';');
+                if (parts[1] == textBox1.Text)
+                {
+                    cont++;
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            if (comboBox1.Text != "")
+            {
+                if (cont == 0)
+                {
+                    var lastLine = File.ReadLines("Ficheiros de Texto/utilizadores.txt").Last();
+                    char[] delimiters = new char[] { ';' };
+                    string[] parts = lastLine.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    int id = Convert.ToInt16(parts[0]) + 1;
+                    string user = textBox1.Text;
+                    string email = textBox2.Text;
+                    string password = textBox3.Text;
+                    StreamWriter sw = File.AppendText("Ficheiros de Texto/utilizadores.txt");
+                    sw.Write("\n" + id + ";" + user + ";" + email + ";" + password + ";" + comboBox1.Text);
+                    MessageBox.Show("Registo efetuado com sucesso.");
+                    sw.Close();
+                    this.Hide();
+                    Form criar_novo_utilizador = new Criar_novo_utilizador();
+                    criar_novo_utilizador.Closed += (s, args) => this.Close();
+                    criar_novo_utilizador.Show();
+                }
+                else
+                {
+                    MessageBox.Show("O user já existe!!");
+                }
+            }
+
+        }
     }
 }

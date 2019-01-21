@@ -37,3 +37,4 @@ C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Comentarios_admin.r
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Devolucoes.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Devolucoes.resources
 C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Criar_novo_utilizador.resources
+C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Criar_novo_utilizador.resources

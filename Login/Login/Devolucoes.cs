@@ -52,7 +52,6 @@ namespace Login
             if (userType == "seguranca")
             {
                 comentáriosToolStripMenuItem.Visible = false;
-                gestãoDeSalasToolStripMenuItem.Visible = false;
                 criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
 

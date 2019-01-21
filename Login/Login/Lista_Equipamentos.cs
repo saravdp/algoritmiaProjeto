@@ -80,10 +80,13 @@ namespace Login
             sr.Close();
 
             //Não permite editar visualmente as DataGrids
-            if (userType == "docente")
-            {
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            if (userType=="admin"||userType=="seguranca")
+            {
+                label1.Hide();
+                comboBox1.Hide();
+                button1.Hide();
             }
         }
 
@@ -106,7 +109,6 @@ namespace Login
             else if (userType == "seguranca")
             {
                 comentáriosToolStripMenuItem.Visible = false;
-                gestãoDeSalasToolStripMenuItem.Visible = false;
                 criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
         }
@@ -288,7 +290,6 @@ namespace Login
 
                     string idObjeto = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                     id = id + 1;
-                    // MessageBox.Show("Resumo de requisição:  \n Sala: {0} \n ");
                     sw.WriteLine("\n" + id + ";" + user + ";" + data + ";" + hora + ";" + sala + ";" + idObjeto + "; ; ");
                     //BAIXAR STOCK----------------------------------------------------------
                     string fileName = "Ficheiros de Texto/equipamentos.txt";
@@ -416,55 +417,13 @@ namespace Login
             
                 while (cats[cont] != null)//Compara cada linha com o array das categorias selecionadas
                 {
-                // filtro += "[Categoria] Like '%" + cats[cont] + "%' ";
+                if (cont > 0) filtro += "OR ";
                 filtro += dataGridView1.Columns["Categoria"].HeaderText.ToString() + " LIKE '%" + cats[cont] + "%' ";
 
                 cont++;
                 }
-            MessageBox.Show(filtro + " FILTRO");
             bs.Filter = filtro;
             dataGridView1.DataSource = bs;
-
-
-            /*   //Inserir dentro do array das checkboxes
-            
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            string filter = "";
-            int tamanho = Convert.ToInt16(filter.Length.ToString());
-            // Check if text fields are not null before adding to filter. 
-            for (int j = 0; j < box.Length; j++)
-            {
-                if (box[j].Checked == true)
-                {
-                    for (int q = 0; q < cats.Length; q++)
-                    {
-                        if (q == 0)
-                        {
-                            if (!string.IsNullOrEmpty(cats[i]))
-                            {
-                                filter += dataGridView1.Columns["Sala"].HeaderText.ToString() + " LIKE '%" + cats[q] + "%' ";
-                            }
-                        }
-                        else
-                        {
-                            if (!string.IsNullOrEmpty(cats[q]))
-                            {
-                                //if (cats[i] == true)
-                                // {
-                                tamanho = Convert.ToInt16(filter.Length.ToString());
-                                if (cats.Length > 0) filter += "OR ";
-
-                                filter += dataGridView1.Columns["Dia_de_requisicao"].HeaderText.ToString() + " LIKE '%" + cats[q] + "%' ";
-                                //  }
-                            }
-                        }
-                    }
-                }
-            }
-            bs.Filter = filter;
-            dataGridView1.DataSource = bs;*/
-
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -494,6 +453,14 @@ namespace Login
             Form criarNovoUtilizador = new Criar_novo_utilizador();
             criarNovoUtilizador.Closed += (s, args) => this.Close();
             criarNovoUtilizador.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form lista_Equipamentos = new Lista_Equipamentos();
+            lista_Equipamentos.Closed += (s, args) => this.Close();
+            lista_Equipamentos.Show();
         }
     }
 }

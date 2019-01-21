@@ -1,6 +1,6 @@
-﻿ID;User;IdRequisicao;Comentario;Estado_do_Comentario;Resposta
+ID;User;IdRequisicao;Comentario;Estado_do_Comentario;Resposta
 0;a;1;Esta avariado;1;Sem resolução
 2;b;2;Esta partido;1;Resolvido
 3;a;2;Esta partido;0;Aguarda resolução
-4;a;1;gostaria de saber oestado deste pedidoi;0;0
+4;a;1;gostaria de saber oestado deste pedidoi;1;Sem resolução
 5;a;1;Isto é um teste;0;0

@@ -86,6 +86,12 @@ namespace Login
                 comentáriosToolStripMenuItem.Visible = false;
                 devoluçõesToolStripMenuItem.Visible = false;
             }
+            //GESTAO DE PERFIS
+            if (userType == "seguranca")
+            {
+                comentáriosToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
+            }
         }
 
         private void salasToolStripMenuItem_Click(object sender, EventArgs e)
