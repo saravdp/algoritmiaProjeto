@@ -35,3 +35,5 @@ C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Historico_Comentari
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Novo_Comentario.resources
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Comentarios_admin.resources
 C:\Users\sarav\algoritmiaProjeto\Login\Login\obj\Debug\Login.Devolucoes.resources
+C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Devolucoes.resources
+C:\Users\tiago\source\repos\Projeto\algoritmiaProjeto\Login\Login\obj\Debug\Login.Criar_novo_utilizador.resources

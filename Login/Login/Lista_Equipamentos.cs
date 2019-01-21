@@ -94,18 +94,20 @@ namespace Login
             {
                 comentáriosAdminToolStripMenuItem.Visible = false;
                 gestãoDeSalasToolStripMenuItem.Visible = false;
+                devoluçõesToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
             else if (userType == "admin")
             {
-                consultasToolStripMenuItem.Visible = false;
                 comentáriosToolStripMenuItem.Visible = false;
+                devoluçõesToolStripMenuItem.Visible = false;
 
             }
             else if (userType == "seguranca")
             {
                 comentáriosToolStripMenuItem.Visible = false;
-                consultasToolStripMenuItem.Visible = false;
                 gestãoDeSalasToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
         }
 
@@ -152,16 +154,21 @@ namespace Login
             char delimiters = ';';
             string[] parts = line.Split(delimiters);
             //CABEÇALHO
-            for (int i = 0; i < parts.Length; i++)
-            {
-                dt.Columns.Add(parts[i]);
-            }
+           
+                for (int i = 1; i < parts.Length; i++)
+                {
+                    dt.Columns.Add(parts[i]);
+                }
+           
+            
             while (line != null)
             {
                 parts = line.Split(delimiters);
                 if (a != 0)
                 {
-                    dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], parts[4]);
+                   
+                        dt.Rows.Add( parts[1], parts[2], parts[3], parts[4]);             
+                      
                 }
                 line = sr.ReadLine();
                 a++;
@@ -480,6 +487,14 @@ namespace Login
             Form login = new Login();
             login.Closed += (s, args) => this.Close();
             login.Show();
+        }
+
+        private void criarNovoUtilizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form criarNovoUtilizador = new Criar_novo_utilizador();
+            criarNovoUtilizador.Closed += (s, args) => this.Close();
+            criarNovoUtilizador.Show();
         }
     }
 }

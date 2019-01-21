@@ -54,15 +54,14 @@ namespace Login
 
             if (userType == "admin")
             {
-                consultasToolStripMenuItem.Visible = false;
                 comentáriosToolStripMenuItem.Visible = false;
-
+                devoluçõesToolStripMenuItem.Visible = false;
             }
             else if (userType == "seguranca")
             {
                 comentáriosToolStripMenuItem.Visible = false;
-                consultasToolStripMenuItem.Visible = false;
                 gestãoDeSalasToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
         }
 
@@ -70,11 +69,8 @@ namespace Login
         {
             //  groupBox2.Enabled = false;
             //Não permite editar visualmente as DataGrids
-            if (userType == "docente")
-            {
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            }
         }
         private void dataGrid_load()
         {
@@ -87,14 +83,24 @@ namespace Login
             char delimiters = ';';
             string[] parts = line.Split(delimiters);
             //CABEÇALHO
-            for (int i = 0; i < parts.Length; i++)
+
+            if (userType == "admin" || userType == "seguranca")
             {
-                dt.Columns.Add(parts[i]);
+                for (int i = 1; i < parts.Length; i++)
+                {
+                    dt.Columns.Add(parts[i]);
+                }
             }
-            while (line != null)
+            if ( userType == "docente")
+            {
+                for (int i = 2; i < parts.Length; i++)
+                {
+                    dt.Columns.Add(parts[i]);
+                }
+            }
+            while (line != null && line != "")
             {
                 parts = line.Split(delimiters);
-                MessageBox.Show(line);
                 if (a != 0)
                 {
                     string estadoResposta = "";
@@ -111,7 +117,17 @@ namespace Login
                     {
                         resposta = "";
                     }
-                    dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], estadoResposta, resposta);
+                    if (userType == "admin" || userType == "seguranca")
+                    {
+                        dt.Rows.Add(parts[1], parts[2], parts[3], estadoResposta, resposta);
+                    }
+                    else
+                    {
+                        if (username == parts[1])
+                        {
+                            dt.Rows.Add(parts[1], parts[2], parts[3], estadoResposta, resposta);
+                        }
+                    }
                 }
                 line = sr.ReadLine();
                 a++;
@@ -270,6 +286,7 @@ namespace Login
             {
                 if (radioButton1.Checked == true)
                 {
+                    MessageBox.Show("a"+selected+"a");
                     string value = dataGridView1.SelectedRows[Convert.ToInt16(selected)].Cells[0].Value.ToString();
                     //procura id no ficheiro de texto
                     String line;
@@ -410,6 +427,19 @@ namespace Login
             Form devolucoes = new Devolucoes();
             devolucoes.Closed += (s, args) => this.Close();
             devolucoes.Show();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void criarNovoUtilizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form criarNovoUtilizador = new Criar_novo_utilizador();
+            criarNovoUtilizador.Closed += (s, args) => this.Close();
+            criarNovoUtilizador.Show();
         }
     }
 }

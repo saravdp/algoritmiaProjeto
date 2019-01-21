@@ -83,8 +83,8 @@ namespace Login
             //GESTAO DE PERFIS
             if (userType == "admin")
             {
-                consultasToolStripMenuItem.Visible = false;
                 comentáriosToolStripMenuItem.Visible = false;
+                devoluçõesToolStripMenuItem.Visible = false;
             }
         }
 
@@ -247,6 +247,14 @@ namespace Login
             Form devolucoes = new Devolucoes();
             devolucoes.Closed += (s, args) => this.Close();
             devolucoes.Show();
+        }
+
+        private void criarNovoUtilizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form criarNovoUtilizador = new Criar_novo_utilizador();
+            criarNovoUtilizador.Closed += (s, args) => this.Close();
+            criarNovoUtilizador.Show();
         }
     }
 }

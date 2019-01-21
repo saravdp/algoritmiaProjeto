@@ -49,10 +49,11 @@ namespace Login
         public void navBar()
         {
             //GESTAO DE PERFIS
-            if (userType == "docente")
+            if (userType == "seguranca")
             {
-                comentáriosAdminToolStripMenuItem.Visible = false;
+                comentáriosToolStripMenuItem.Visible = false;
                 gestãoDeSalasToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
 
         }
@@ -279,6 +280,14 @@ namespace Login
         private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void criarNovoUtilizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form criarNovoUtilizador = new Criar_novo_utilizador();
+            criarNovoUtilizador.Closed += (s, args) => this.Close();
+            criarNovoUtilizador.Show();
         }
     }
 }

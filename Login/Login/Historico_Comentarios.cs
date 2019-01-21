@@ -140,7 +140,9 @@ namespace Login
             if (userType == "docente")
             {
                 comentáriosAdminToolStripMenuItem.Visible=false;
-                gestãoDeSalasToolStripMenuItem.Visible = false; 
+                gestãoDeSalasToolStripMenuItem.Visible = false;
+                devoluçõesToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
         }
         private void comentáriosAdminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,6 +235,14 @@ namespace Login
             Form devolucoes = new Devolucoes();
             devolucoes.Closed += (s, args) => this.Close();
             devolucoes.Show();
+        }
+
+        private void criarNovoUtilizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form criarNovoUtilizador = new Criar_novo_utilizador();
+            criarNovoUtilizador.Closed += (s, args) => this.Close();
+            criarNovoUtilizador.Show();
         }
     }
 }

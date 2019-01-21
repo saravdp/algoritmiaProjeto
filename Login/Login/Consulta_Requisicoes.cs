@@ -51,10 +51,25 @@ namespace Login
         public void navBar()
         {
             //GESTAO DE PERFIS
+            
             if (userType == "docente")
             {
                 comentáriosAdminToolStripMenuItem.Visible = false;
                 gestãoDeSalasToolStripMenuItem.Visible = false;
+                devoluçõesToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
+            }
+            else if (userType == "admin")
+            {
+                comentáriosToolStripMenuItem.Visible = false;
+                devoluçõesToolStripMenuItem.Visible = false;
+
+            }
+            else if (userType == "seguranca")
+            {
+                comentáriosToolStripMenuItem.Visible = false;
+                gestãoDeSalasToolStripMenuItem.Visible = false;
+                criarNovoUtilizadorToolStripMenuItem.Visible = false;
             }
 
         }
@@ -66,6 +81,8 @@ namespace Login
             {
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+                comboBox3.Hide();
+                label5.Hide();
             }
             StreamReader sr = new StreamReader("Ficheiros de Texto/salas.txt");
             string line = sr.ReadLine();
@@ -188,20 +205,20 @@ namespace Login
                 //CABEÇALHO
                 if (cont == 0)
                 {
-                    // if (userType == "admin" || userType == "seguranca")
-                    //  {
-                    for (int i = 0; i < parts.Length; i++)
+                    if (userType == "admin" || userType == "seguranca")
                     {
-                        dt.Columns.Add(parts[i]);
+                        for (int i = 0; i < parts.Length; i++)
+                        {
+                            dt.Columns.Add(parts[i]);
+                        }
                     }
-                    /*   }
-                       else
-                       {
-                           for (int i = 2; i < parts.Length; i++)
-                           {
-                               dt.Columns.Add(parts[i]);
-                           }
-                       }*/
+                    else
+                    {
+                        for (int i = 2; i < parts.Length; i++)
+                        {
+                            dt.Columns.Add(parts[i]);
+                        }
+                    }
                     cont++;
                 }
                 while (line != null)
@@ -222,17 +239,17 @@ namespace Login
                                     equipamento = part[1];
 
 
-                                    // if (userType == "admin" || userType == "seguranca")
-                                    //  {
-                                    dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], parts[4], equipamento, parts[6], parts[7]);
-                                    /*   }
-                                       else
-                                       {
-                                           if (parts[1] == username)
-                                           {*/
-                                    //     dt.Rows.Add(parts[2], parts[3], parts[4], equipamento, parts[6], parts[7]);
-                                    //   }
-                                    //  }
+                                    if (userType == "admin" || userType == "seguranca")
+                                    {
+                                        dt.Rows.Add(parts[0], parts[1], parts[2], parts[3], parts[4], equipamento, parts[6], parts[7]);
+                                    }
+                                    else
+                                    {
+                                        if (parts[1] == username)
+                                        {
+                                            dt.Rows.Add(parts[2], parts[3], parts[4], equipamento, parts[6], parts[7]);
+                                        }
+                                    }
                                 }
                                 lines = sa.ReadLine();
                             }
@@ -272,15 +289,15 @@ namespace Login
 
             if (!string.IsNullOrEmpty(comboBox2.Text))
             {
-                filter += dataGridView1.Columns["Sala"].HeaderText.ToString() + " LIKE '%" + comboBox2.Text + "%' ";               
+                filter += dataGridView1.Columns["Sala"].HeaderText.ToString() + " LIKE '%" + comboBox2.Text + "%' ";
             }
             if (!string.IsNullOrEmpty(dateTimePicker1.Text))
             {
                 if (radioButton1.Checked == true)
                 {
                     tamanho = Convert.ToInt16(filter.Length.ToString());
-                if (tamanho > 0) filter += "AND ";
-               
+                    if (tamanho > 0) filter += "AND ";
+
                     filter += dataGridView1.Columns["Dia_de_requisicao"].HeaderText.ToString() + " LIKE '%" + dateTimePicker1.Value.ToString("dd-MM-yyyy") + "%' ";
                 }
             }
@@ -290,9 +307,7 @@ namespace Login
                 {
                     tamanho = Convert.ToInt16(filter.Length.ToString());
                     if (tamanho > 0) filter += "AND ";
-                   // filter += dataGridView1.Columns["Data_de_devolucao"].HeaderText.ToString() + " LIKE '%" + dateTimePicker2.Value.ToString("dd-MM-yyyy") + "%' ";
                     filter += dataGridView1.Columns["Data_de_devolucao"].HeaderText.ToString() + " LIKE '%" + dateTimePicker1.Value.ToString("dd-MM-yy") + "%' ";
-                    MessageBox.Show(filter);
                 }
             }
             if (!string.IsNullOrEmpty(comboBox1.Text))
@@ -307,7 +322,6 @@ namespace Login
                 if (tamanho > 0) filter += "AND ";
                 filter += dataGridView1.Columns["User"].HeaderText.ToString() + " LIKE '%" + comboBox3.Text + "%' ";
             }
-            MessageBox.Show(filter);
             contador++;
             bs.Filter = filter;
             dataGridView1.DataSource = bs;
@@ -353,6 +367,14 @@ namespace Login
             Form devolucoes = new Devolucoes();
             devolucoes.Closed += (s, args) => this.Close();
             devolucoes.Show();
+        }
+
+        private void criarNovoUtilizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form criarNovoUtilizador = new Criar_novo_utilizador();
+            criarNovoUtilizador.Closed += (s, args) => this.Close();
+            criarNovoUtilizador.Show();
         }
     }
 }

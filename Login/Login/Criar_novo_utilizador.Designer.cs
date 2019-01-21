@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class Novo_Comentario
+    partial class Criar_novo_utilizador
     {
         /// <summary>
         /// Required designer variable.
@@ -33,18 +33,21 @@
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hitóricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comentáriosAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.criarNovoUtilizadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1262, 28);
-            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // listaEquipamentosToolStripMenuItem
@@ -85,25 +88,24 @@
             // 
             this.comentáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inserirNovoToolStripMenuItem,
-            this.hitóricoToolStripMenuItem});
+            this.históricoToolStripMenuItem});
             this.comentáriosToolStripMenuItem.Name = "comentáriosToolStripMenuItem";
             this.comentáriosToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.comentáriosToolStripMenuItem.Text = "Comentários";
-            this.comentáriosToolStripMenuItem.Click += new System.EventHandler(this.comentáriosToolStripMenuItem_Click);
             // 
             // inserirNovoToolStripMenuItem
             // 
             this.inserirNovoToolStripMenuItem.Name = "inserirNovoToolStripMenuItem";
-            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
-            this.inserirNovoToolStripMenuItem.Text = "Inserir novo";
+            this.inserirNovoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.inserirNovoToolStripMenuItem.Text = "Inserir Novo";
             this.inserirNovoToolStripMenuItem.Click += new System.EventHandler(this.inserirNovoToolStripMenuItem_Click);
             // 
-            // hitóricoToolStripMenuItem
+            // históricoToolStripMenuItem
             // 
-            this.hitóricoToolStripMenuItem.Name = "hitóricoToolStripMenuItem";
-            this.hitóricoToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
-            this.hitóricoToolStripMenuItem.Text = "Histórico ";
-            this.hitóricoToolStripMenuItem.Click += new System.EventHandler(this.hitóricoToolStripMenuItem_Click);
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // gestãoDeSalasToolStripMenuItem
             // 
@@ -113,19 +115,18 @@
             this.gestãoDeSalasToolStripMenuItem.Name = "gestãoDeSalasToolStripMenuItem";
             this.gestãoDeSalasToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.gestãoDeSalasToolStripMenuItem.Text = "Gestão (Admin)";
-            this.gestãoDeSalasToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeSalasToolStripMenuItem_Click);
             // 
             // salasToolStripMenuItem
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
@@ -143,100 +144,110 @@
             this.devoluçõesToolStripMenuItem.Text = "Devoluções";
             this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
             // 
-            // richTextBox1
+            // comboBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(108, 122);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1012, 423);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(493, 132);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(279, 24);
+            this.comboBox1.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(104, 85);
+            this.label1.Location = new System.Drawing.Point(493, 109);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Inserir novo comentário";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Tipo de Utilizador";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(120, 612);
+            this.label2.Location = new System.Drawing.Point(497, 231);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Relativamente à requisição:";
+            this.label2.Size = new System.Drawing.Size(152, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Nome de Utilizador";
             // 
-            // comboBox1
+            // label3
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(360, 612);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(381, 24);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(497, 347);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Email";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.Location = new System.Drawing.Point(497, 469);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Password";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(497, 254);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(279, 22);
+            this.textBox1.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(497, 370);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(279, 22);
+            this.textBox2.TabIndex = 15;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(497, 492);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(279, 22);
+            this.textBox3.TabIndex = 16;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(832, 601);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(497, 589);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 42);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Submeter Comentário";
+            this.button1.Size = new System.Drawing.Size(279, 42);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Criar Novo Utilizador";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(1175, 3);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(74, 25);
-            this.linkLabel1.TabIndex = 15;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "LogOut";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // criarNovoUtilizadorToolStripMenuItem
             // 
             this.criarNovoUtilizadorToolStripMenuItem.Name = "criarNovoUtilizadorToolStripMenuItem";
             this.criarNovoUtilizadorToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.criarNovoUtilizadorToolStripMenuItem.Text = "Criar Novo Utilizador";
-            this.criarNovoUtilizadorToolStripMenuItem.Click += new System.EventHandler(this.criarNovoUtilizadorToolStripMenuItem_Click);
             // 
-            // Novo_Comentario
+            // Criar_novo_utilizador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1262, 753);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.menuStrip1);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Novo_Comentario";
-            this.Text = "Comentarios";
-            this.Load += new System.EventHandler(this.Comentarios_Load);
+            this.Name = "Criar_novo_utilizador";
+            this.Text = "Criar_novo_utilizador";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -250,19 +261,22 @@
         private System.Windows.Forms.ToolStripMenuItem listaEquipamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comentáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inserirNovoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeSalasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comentáriosAdminToolStripMenuItem;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem devoluçõesToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem inserirNovoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hitóricoToolStripMenuItem;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.ToolStripMenuItem devoluçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem criarNovoUtilizadorToolStripMenuItem;
     }
 }
