@@ -166,8 +166,6 @@ namespace Login
             {
                 string[] lines1 = File.ReadAllLines(fileName);
                 lines1[linhaAlterar] = linhaSaved;
-                MessageBox.Show("LENGHT" + lines1.Length.ToString());
-                lines1[lines1.Length - 1] = "";
                 File.WriteAllLines(fileName, lines1);
                 var lines = File.ReadAllLines(fileName).Where(arg => !string.IsNullOrWhiteSpace(arg));
                 File.WriteAllLines(fileName, lines);

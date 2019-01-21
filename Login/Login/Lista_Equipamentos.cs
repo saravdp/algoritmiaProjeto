@@ -231,7 +231,7 @@ namespace Login
             string nameFile = "Ficheiros de Texto/Requisicoes/R_" + dataReq.ToString("ddMMyy");
             string[] parts;
             string idEquipamento = "";
-            int id = 0;//= Convert.ToInt16(parts[0]);
+            int id = 1;//= Convert.ToInt16(parts[0]);
             if (comboBox1.Text != "")
             {//Cria ficheiro de texto para o dia se nao existir e escreve o user, data,hora,sala,tipo_objeto 
                 StreamWriter sw;

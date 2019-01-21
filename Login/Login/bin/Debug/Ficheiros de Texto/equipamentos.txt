@@ -1,4 +1,4 @@
 ID;Nome;Categoria;Stock;Estado
 1;Pc Sony Vaio;Computadores;7;disponivel
-2;Maquina Fotografica Canon Q13;Cameras;16;disponivel
-3;Tela;Greenscreens;19;disponivel
+2;Maquina Fotografica Canon Q13;Cameras;13;disponivel
+3;Tela;Greenscreens;15;disponivel
