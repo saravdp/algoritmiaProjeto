@@ -17,11 +17,6 @@ namespace Login
         public string userType;
         string user = "";
         string idreq = "";
-
-
-        
-
-
         public Novo_Comentario()
         {
             InitializeComponent();
@@ -181,7 +176,7 @@ namespace Login
            // string fileName = "R_" + parts[0];
             StreamWriter sw;
             sw = File.AppendText("Ficheiros de texto/comentarios.txt");
-            sw.WriteLine("\n"+idComent + ";" + user + ";" + idreq + ";"+richTextBox1.Text+";0;0");
+            sw.WriteLine(idComent + ";" + user + ";" + idreq + ";"+richTextBox1.Text+";0;0");
             sw.Close();
             richTextBox1.Text = "";
             comboBox1.Text = "";

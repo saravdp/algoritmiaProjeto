@@ -289,7 +289,6 @@ namespace Login
                     }
 
                     string idObjeto = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                    id = id + 1;
                     sw.WriteLine("\n" + id + ";" + user + ";" + data + ";" + hora + ";" + sala + ";" + idObjeto + "; ; ");
                     //BAIXAR STOCK----------------------------------------------------------
                     string fileName = "Ficheiros de Texto/equipamentos.txt";
